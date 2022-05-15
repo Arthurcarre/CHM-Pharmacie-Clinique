@@ -2,5 +2,5 @@ Index,Condition,Paragraphe
 Sels de potassium [DIFFU-K; KALEORID],Avec co-prescription hypokaliémiant :,Paragraphe n°1
 Sels de potassium [DIFFU-K; KALEORID],Sans co-prescription hypokaliémiant :,Paragraphe n°2
 Sels de potassium [DIFFU-K; KALEORID],Sans co-prescription hypokaliémiant + co-prescription hyperkaliémiant :,Paragraphe n°3
-Colecalciferol [UVEDOSE; ZYMAD],IMC < 30 :,Paragraphe n°1
-Colecalciferol [UVEDOSE; ZYMAD],IMC > 30 :,Paragraphe n°2
+Colecalciferol [UVEDOSE; ZYMAD],Si IMC du patient < 30 kg/m2:,Paragraphe n°1
+Colecalciferol [UVEDOSE; ZYMAD],Si IMC du patient > 30 kg/m2:,Paragraphe n°2
