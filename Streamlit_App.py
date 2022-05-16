@@ -3,6 +3,8 @@ import pandas as pd
 
 logo = st.sidebar.image('img/logo_chm.png')
 
+st.subheader('À adapter selon le contexte')
+
 data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
 data_frame.set_index('Index', inplace=True)
 
