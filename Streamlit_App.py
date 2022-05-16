@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 logo = st.sidebar.image('img/logo_chm.png')
-
+st.caption("Guide d'analyse pharmacothérapeutique chez le patient MUPA .")
 st.subheader('À adapter selon le contexte')
 
 data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
