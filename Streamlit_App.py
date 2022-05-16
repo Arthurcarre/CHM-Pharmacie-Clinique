@@ -20,8 +20,5 @@ for i in data_frame.index:
         compteur += 1
 
 for i in range(compteur):
-    txt = st.text_area(f"{data_frame.loc[{option}, 'Condition'][i]}", f"{data_frame.loc[{option}, 'Paragraphe'][i]}")
-
-
-
+    txt = st.text_area(f"{data_frame.loc[{option}, 'Condition'][i]}", f"{data_frame.loc[{option}, 'Paragraphe'][i]}", max_chars=500)
 
