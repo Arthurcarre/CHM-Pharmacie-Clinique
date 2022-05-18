@@ -17,7 +17,8 @@ option = st.sidebar.selectbox(
      " médicament (DCI ou Princeps).",
      liste_medoc)
 
-st.sidebar.write('Tu as sélectionné:', option)
+if st.sidebar.button(option):
+     st.write("Le médicament a été ajouté")
 
 compteur = 0
 for i in data_frame.index: 
