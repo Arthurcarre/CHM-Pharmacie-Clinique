@@ -19,6 +19,7 @@ option = st.sidebar.selectbox(
 col1, col2 = st.columns(2)
 
 if st.sidebar.button("Ajouter le médicament"):
+     st.subheader('Liste des prescriptions')
      col1.write(option)
      with col2 :
           st.subheader('À adapter selon le contexte')
