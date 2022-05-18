@@ -17,7 +17,7 @@ option = st.sidebar.selectbox(
      " médicament (DCI ou Princeps).",
      liste_medoc)
 
-col1, col2 :st.columns(2):
+col1, col2 = st.columns(2)
 
 if st.sidebar.button("Ajouter le médicament):
      col1.write(option)
