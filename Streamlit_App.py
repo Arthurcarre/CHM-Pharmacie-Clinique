@@ -17,13 +17,16 @@ option = st.sidebar.selectbox(
      " médicament (DCI ou Princeps).",
      liste_medoc)
 
-if st.sidebar.button(option):
-     st.write("Le médicament a été ajouté")
+col1, col2 :st.columns(2):
 
-compteur = 0
-for i in data_frame.index: 
-    if i == option:
-        compteur += 1
+if st.sidebar.button("Ajouter le médicament):
+     col1.write(option)
+     with col2 :
+          with st.expander("Commentaires"):                                  
+               compteur = 0
+               for i in data_frame.index: 
+                   if i == option:
+                       compteur += 1
 
-for i in range(compteur):
-    txt = st.text_area(f"{data_frame.loc[{option}, 'Condition'][i]}", f"{data_frame.loc[{option}, 'Paragraphe'][i]}", max_chars=500)
+               for i in range(compteur):
+                   txt = st.text_area(f"{data_frame.loc[{option}, 'Condition'][i]}", f"{data_frame.loc[{option}, 'Paragraphe'][i]}", max_chars=500)
