@@ -23,14 +23,14 @@ if st.sidebar.button("Ajouter le médicament"):
      
 if option in st.session_state :     
      col1.subheader('Liste des prescriptions')
-     col1.write(option)
+     col1.write(st.session_state.option)
      with col2 :
           st.subheader('À adapter selon le contexte')
           with st.expander("Commentaires"):                                  
                compteur = 0
                for i in data_frame.index: 
-                   if i == option:
+                   if i == st.session_state.option:
                        compteur += 1
 
                for i in range(compteur):
-                   txt = st.text_area(f"{data_frame.loc[{option}, 'Condition'][i]}", f"{data_frame.loc[{option}, 'Paragraphe'][i]}", max_chars=500)
+                   txt = st.text_area(f"{data_frame.loc[{st.session_state.option}, 'Condition'][i]}", f"{data_frame.loc[{st.session_state.option}, 'Paragraphe'][i]}", max_chars=500)
