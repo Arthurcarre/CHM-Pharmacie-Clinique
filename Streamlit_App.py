@@ -21,7 +21,7 @@ col1, col2 = st.columns(2)
 if st.sidebar.button("Ajouter le médicament"):
      st.session_state.option = option
      
-if option in st.session_state :     
+if "option" in st.session_state :     
      col1.subheader('Liste des prescriptions')
      col1.write(st.session_state.option)
      with col2 :
