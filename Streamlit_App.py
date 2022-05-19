@@ -19,6 +19,9 @@ option = st.sidebar.selectbox(
      " médicament (DCI ou Princeps).",
      liste_medoc)
 
+if "liste_presc" in st.session_state:
+     liste_presc = st.session_state.liste_presc
+
 if "liste_presc" not in st.session_state:
      liste_presc = []
 
