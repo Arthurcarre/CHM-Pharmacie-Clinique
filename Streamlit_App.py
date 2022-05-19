@@ -12,24 +12,27 @@ liste_medoc.sort()
 
 col1, col2 = st.columns(2)
 col1.subheader('Liste des prescriptions')
-col2.subheader('Commentaires à adapter selon le contexte')
+col2.subheader('Commentaires à adapter')
 
 option = st.sidebar.selectbox(
      "Choisis un médicament. Petite astuce : Il suffit de cliquer sur la barre de recherche, pas besoin d'effacer, et de taper les première lettres du"
      " médicament (DCI ou Princeps).",
      liste_medoc)
 
+liste_presc = []
+
 if st.sidebar.button("Ajouter le médicament"):
-     st.session_state.medoc = option
-     
-if "medoc" in st.session_state :     
-     col1.write(st.session_state.medoc)
+     liste_presc.append(option)
+
+st.write(len(liste_presc))
+for medoc in liste_presc :  
+     col1.write(medoc)
      with col2 :
           with st.expander("Commentaires"):                                  
                compteur = 0
                for i in data_frame.index: 
-                   if i == st.session_state.medoc:
+                   if i == medoc:
                        compteur += 1
 
                for i in range(compteur):
-                   txt = st.text_area(f"{data_frame.loc[{st.session_state.medoc}, 'Condition'][i]}", f"{data_frame.loc[{st.session_state.medoc}, 'Paragraphe'][i]}", max_chars=500)
+                   txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}", f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}", max_chars=500)
