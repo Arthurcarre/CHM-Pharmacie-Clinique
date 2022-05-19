@@ -24,7 +24,8 @@ liste_presc = []
 if st.sidebar.button("Ajouter le médicament"):
      liste_presc.append(option)
 
-st.write(len(liste_presc))
+st.sidebar.write(len(liste_presc))
+
 for medoc in liste_presc :  
      col1.write(medoc)
      with col2 :
