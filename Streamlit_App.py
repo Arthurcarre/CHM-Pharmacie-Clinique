@@ -35,8 +35,8 @@ if st.sidebar.button("Réinitialiser la prescritpion"):
                
 if "liste_presc" in st.session_state:
      for medoc in st.session_state.liste_presc :  
+          col1, col2 = st.columns(2)
           col1.write(medoc)
-          col1.write("\n")
           with col2 :
                with st.expander("Commentaires"):                                  
                     compteur = 0
