@@ -29,14 +29,15 @@ if st.sidebar.button("Ajouter le médicament"):
 if "liste_presc" in st.session_state:
      st.sidebar.write(len(st.session_state.liste_presc))
 
-for medoc in st.session_state.liste_presc :  
-     col1.write(medoc)
-     with col2 :
-          with st.expander("Commentaires"):                                  
-               compteur = 0
-               for i in data_frame.index: 
-                   if i == medoc:
-                       compteur += 1
+if "liste_presc" in st.session_state:
+     for medoc in st.session_state.liste_presc :  
+          col1.write(medoc)
+          with col2 :
+               with st.expander("Commentaires"):                                  
+                    compteur = 0
+                    for i in data_frame.index: 
+                        if i == medoc:
+                            compteur += 1
 
-               for i in range(compteur):
-                   txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}", f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}", max_chars=500)
+                    for i in range(compteur):
+                        txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}", f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}", max_chars=500)
