@@ -26,7 +26,8 @@ if st.sidebar.button("Ajouter le médicament"):
      liste_presc.append(option)
      st.session_state.liste_presc = liste_presc
 
-st.sidebar.write(len(st.session_state.liste_presc))
+if "liste_presc" in st.session_state:
+     st.sidebar.write(len(st.session_state.liste_presc))
 
 for medoc in st.session_state.liste_presc :  
      col1.write(medoc)
