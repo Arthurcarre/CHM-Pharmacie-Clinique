@@ -19,14 +19,16 @@ option = st.sidebar.selectbox(
      " médicament (DCI ou Princeps).",
      liste_medoc)
 
-liste_presc = []
+if "liste_presc" not in session_state:
+     liste_presc = []
 
 if st.sidebar.button("Ajouter le médicament"):
      liste_presc.append(option)
+     st.session_state.liste_presc = liste_presc
 
-st.sidebar.write(len(liste_presc))
+st.sidebar.write(len(st.session_state.liste_presc))
 
-for medoc in liste_presc :  
+for medoc in st.session_state.liste_presc :  
      col1.write(medoc)
      with col2 :
           with st.expander("Commentaires"):                                  
