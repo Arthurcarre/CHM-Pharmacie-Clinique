@@ -44,3 +44,7 @@ if "liste_presc" in st.session_state:
 
                     for i in range(compteur):
                         txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}", f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}", max_chars=500)
+                    
+if st.sidebar.button("Réinitialiser la prescritpion"):
+     if 'liste_presc' in st.session_state:
+            del st.session_state.liste_presc
