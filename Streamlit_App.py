@@ -48,6 +48,8 @@ if "liste_presc" in st.session_state:
                     for i in range(compteur):
                         txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}", f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}", max_chars=500) 
 
+st.write(" ----------------------------- ")                
+                    
 torsadogene_num = []
 torsadogene_name = []
 hypok_num = []
@@ -72,11 +74,13 @@ if "liste_presc" in st.session_state:
           with st.expander("Médicament(s) torsadogène(s) de la prescription"):
                for name in torsadogene_name : 
                     st.write(f"\n {name}")
+     col1, col2 = st.columns(2)
      col1.write(f"Nombre de médicament hypokaliémiant dans cette prescription : {np.sum(hypok_num)}")
      with col2 :
           with st.expander("Médicament(s) hypokaliémiant(s) de la prescription"):
                for name in hypok_name : 
                     st.write(f"\n {name}")
+     col1, col2 = st.columns(2)
      col1.write(f"Nombre de médicament torsadogène dans cette prescription : {np.sum(hyperk_num)}")
      with col2 :
           with st.expander("Médicament(s) hyperkaliémiant(s) de la prescription"):
