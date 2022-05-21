@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 logo = st.sidebar.image('img/logo_chm.png')
 st.sidebar.caption("Guide d'analyse pharmacothérapeutique chez le patient MUPA.")
