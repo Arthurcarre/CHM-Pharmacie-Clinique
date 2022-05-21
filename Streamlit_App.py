@@ -66,17 +66,17 @@ if "liste_presc" in st.session_state:
                hyperk_num.append(int(data_frame.loc[{medoc}, 'HyperK'][0]))
                hyperk_name.append(medoc)
      col1, col2 = st.columns(2)
-     col1.write(f"Nombre de médicament torsadogène dans cette prescription : {torsadogene_num.sum()}")
+     col1.write(f"Nombre de médicament torsadogène dans cette prescription : {np.sum(torsadogene_num)}")
      with col2 :
           with st.expander("Médicament(s) torsadogène(s) de la prescription"):
                for name in torsadogene_name : 
                     st.write(f"\n {name}")
-     col1.write(f"Nombre de médicament hypokaliémiant dans cette prescription : {hypok_num.sum()}")
+     col1.write(f"Nombre de médicament hypokaliémiant dans cette prescription : {np.sum(hypok_num)}")
      with col2 :
           with st.expander("Médicament(s) hypokaliémiant(s) de la prescription"):
                for name in hypok_name : 
                     st.write(f"\n {name}")
-     col1.write(f"Nombre de médicament torsadogène dans cette prescription : {hyperk_num.sum()}")
+     col1.write(f"Nombre de médicament torsadogène dans cette prescription : {np.sum(hyperk_num)}")
      with col2 :
           with st.expander("Médicament(s) hyperkaliémiant(s) de la prescription"):
                for name in hyperk_name : 
