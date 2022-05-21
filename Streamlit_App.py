@@ -62,10 +62,10 @@ if "liste_presc" in st.session_state:
           if data_frame.loc[{medoc}, 'Torsadogène'][0] == 1 :
                torsadogene_num.append(int(data_frame.loc[{medoc}, 'Torsadogène'][0]))
                torsadogene_name.append(medoc)
-          if data_frame.loc[{medoc}, 'Torsadogène'][0] == 1 :
+          if data_frame.loc[{medoc}, 'Hypok'][0] == 1 :
                hypok_num.append(int(data_frame.loc[{medoc}, 'Hypok'][0]))
                hypok_name.append(medoc)
-          if data_frame.loc[{medoc}, 'Torsadogène'][0] == 1 :
+          if data_frame.loc[{medoc}, 'HyperK'][0] == 1 :
                hyperk_num.append(int(data_frame.loc[{medoc}, 'HyperK'][0]))
                hyperk_name.append(medoc)
      col1, col2 = st.columns(2)
