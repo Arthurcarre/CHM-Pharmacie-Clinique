@@ -81,7 +81,7 @@ if "liste_presc" in st.session_state:
                for name in hypok_name : 
                     st.write(f"\n {name}")
      col1, col2 = st.columns(2)
-     col1.write(f"Nombre de médicament torsadogène dans cette prescription : {np.sum(hyperk_num)}")
+     col1.write(f"Nombre de médicament hyperkaliémiant dans cette prescription : {np.sum(hyperk_num)}")
      with col2 :
           with st.expander("Médicament(s) hyperkaliémiant(s) de la prescription"):
                for name in hyperk_name : 
