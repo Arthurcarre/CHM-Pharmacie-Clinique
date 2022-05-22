@@ -50,12 +50,26 @@ if "liste_presc" in st.session_state:
 
 st.write(" ----------------------------- ")                
                     
+anticho_periph_num = []
+anticho_periph_name = []
+anticho_central_num = []
+anticho_central_name = []
 torsadogene_num = []
 torsadogene_name = []
 hypok_num = []
 hypok_name = []
 hyperk_num = []
 hyperk_name = []
+depresseur_SNC_num = []
+depresseur_SNC_name = []
+medoc_inaprop_num = []
+medoc_inaprop_name = []
+bradycardi_num = []
+bradycardi_name = []
+hypo_otho_num = []
+hypo_otho_name = []
+pro_convuls_num = []
+pro_convuls_name = []
                     
 if "liste_presc" in st.session_state:
      for medoc in st.session_state.liste_presc :
@@ -68,6 +82,19 @@ if "liste_presc" in st.session_state:
           if data_frame.loc[{medoc}, 'HyperK'][0] == 1 :
                hyperk_num.append(int(data_frame.loc[{medoc}, 'HyperK'][0]))
                hyperk_name.append(medoc)
+          if data_frame.loc[{medoc}, 'Dépresseur_SNC'][0] == 1 :
+               depresseur_SNC_num.append(int(data_frame.loc[{medoc}, 'Dépresseur_SNC'][0]))
+               depresseur_SNC_name.append(medoc)
+          if data_frame.loc[{medoc}, 'Médicam inapprop'][0] == 1 :
+               medoc_inaprop_num.append(int(data_frame.loc[{medoc}, 'Médicam inapprop'][0]))
+               medoc_inaprop_name.append(medoc)
+          if data_frame.loc[{medoc}, 'HypoT_Ortho'][0] == 1 :
+               hypo_otho_num.append(int(data_frame.loc[{medoc}, 'HypoT_Ortho'][0]))
+               hypo_otho_name.append(medoc)
+          if data_frame.loc[{medoc}, 'Pro_convul'][0] == 1 :
+               pro_convuls_num.append(int(data_frame.loc[{medoc}, 'Pro_convul'][0]))
+               pro_convuls_name.append(medoc)
+     
      col1, col2 = st.columns(2)
      col1.write(f"Nombre de médicament torsadogène dans cette prescription : {np.sum(torsadogene_num)}")
      with col2 :
@@ -85,5 +112,23 @@ if "liste_presc" in st.session_state:
      with col2 :
           with st.expander("Médicament(s) hyperkaliémiant(s) de la prescription"):
                for name in hyperk_name : 
+                    st.write(f"\n {name}")                
+     col1, col2 = st.columns(2)
+     col1.write(f"Nombre de médicament dépresseur du système nerveux central dans cette prescription : {np.sum(depresseur_SNC_num)}")
+     with col2 :
+          with st.expander("Médicament(s) dépresseur(s) du système nerveux central de la prescription"):
+               for name in depresseur_SNC_name : 
+                    st.write(f"\n {name}")
+     col1, col2 = st.columns(2)
+     col1.write(f"Nombre de médicament potentiellement inapproprié chez la personne âgée dans cette prescription : {np.sum(medoc_inaprop_num)}")
+     with col2 :
+          with st.expander("Médicament(s) potentiellement inapproprié(s) chez la personne âgée de la prescription"):
+               for name in medoc_inaprop_name : 
+                    st.write(f"\n {name}")
+     col1, col2 = st.columns(2)
+     col1.write(f"Nombre de médicament proconvulsivant dans cette prescription : {np.sum(pro_convuls_num)}")
+     with col2 :
+          with st.expander("Médicament(s) proconvulsivant(s) de la prescription"):
+               for name in pro_convuls_name : 
                     st.write(f"\n {name}")
      
