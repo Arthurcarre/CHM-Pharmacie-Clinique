@@ -66,8 +66,8 @@ medoc_inaprop_num = []
 medoc_inaprop_name = []
 bradycardi_num = []
 bradycardi_name = []
-hypo_otho_num = []
-hypo_otho_name = []
+hypoT_ortho_num = []
+hypoT_ortho_name = []
 pro_convuls_num = []
 pro_convuls_name = []
                     
@@ -89,8 +89,8 @@ if "liste_presc" in st.session_state:
                medoc_inaprop_num.append(int(data_frame.loc[{medoc}, 'Médicam inapprop'][0]))
                medoc_inaprop_name.append(medoc)
           if data_frame.loc[{medoc}, 'HypoT_Ortho'][0] == 1 :
-               hypo_otho_num.append(int(data_frame.loc[{medoc}, 'HypoT_Ortho'][0]))
-               hypo_otho_name.append(medoc)
+               hypoT_ortho_num.append(int(data_frame.loc[{medoc}, 'HypoT_Ortho'][0]))
+               hypoT_ortho_name.append(medoc)
           if data_frame.loc[{medoc}, 'Pro_convul'][0] == 1 :
                pro_convuls_num.append(int(data_frame.loc[{medoc}, 'Pro_convul'][0]))
                pro_convuls_name.append(medoc)
@@ -124,6 +124,12 @@ if "liste_presc" in st.session_state:
      with col2 :
           with st.expander("Médicament(s) potentiellement inapproprié(s) chez la personne âgée de la prescription"):
                for name in medoc_inaprop_name : 
+                    st.write(f"\n {name}")
+     col1, col2 = st.columns(2)
+     col1.write(f"Nombre de médicament à l'origine d'hypotension (hors antihypertenseur), notamment orthostatique, dans cette prescription : {np.sum(hypoT_ortho_num)}")
+     with col2 :
+          with st.expander("Médicament(s) à l'origine d'hypotension (hors antihypertenseur), notamment orthostatique, de la prescription"):
+               for name in hypoT_ortho_name : 
                     st.write(f"\n {name}")
      col1, col2 = st.columns(2)
      col1.write(f"Nombre de médicament proconvulsivant dans cette prescription : {np.sum(pro_convuls_num)}")
