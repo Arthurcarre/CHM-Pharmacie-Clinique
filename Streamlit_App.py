@@ -73,6 +73,12 @@ pro_convuls_name = []
                     
 if "liste_presc" in st.session_state:
      for medoc in st.session_state.liste_presc :
+          if data_frame.loc[{medoc}, 'Charge anticholinergique périphérique'][0] > 0 :
+               anticho_periph_num.append(int(data_frame.loc[{medoc}, 'Charge anticholinergique périphérique'][0]))
+               anticho_periph_name.append(medoc)
+          if data_frame.loc[{medoc}, 'Charge anticholinergique centrale'][0] > 0 :
+               anticho_central_num.append(int(data_frame.loc[{medoc}, 'Charge anticholinergique centrale'][0]))
+               anticho_central_name.append(medoc)
           if data_frame.loc[{medoc}, 'Torsadogène'][0] == 1 :
                torsadogene_num.append(int(data_frame.loc[{medoc}, 'Torsadogène'][0]))
                torsadogene_name.append(medoc)
@@ -95,6 +101,18 @@ if "liste_presc" in st.session_state:
                pro_convuls_num.append(int(data_frame.loc[{medoc}, 'Pro_convul'][0]))
                pro_convuls_name.append(medoc)
      
+     col1, col2 = st.columns(2)
+     col1.write(f"Charge anticholinergique périphérique de cette prescription : {np.sum(anticho_periph_num)}")
+     with col2 :
+          with st.expander("Médicament(s) anticholinergique(s) de la prescription"):
+               for name in anticho_periph_name : 
+                    st.write(f"\n {name}")
+     col1, col2 = st.columns(2)
+     col1.write(f"Charge anticholinergique centrale de cette prescription : {np.sum(anticho_central_num)}")
+     with col2 :
+          with st.expander("Médicament(s) anticholinergique(s) avec action central dans cette prescription"):
+               for name in anticho_central_name : 
+                    st.write(f"\n {name}")
      col1, col2 = st.columns(2)
      col1.write(f"Nombre de médicament torsadogène dans cette prescription : {np.sum(torsadogene_num)}")
      with col2 :
