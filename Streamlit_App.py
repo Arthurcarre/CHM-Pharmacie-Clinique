@@ -46,7 +46,9 @@ if "liste_presc" in st.session_state:
                             compteur += 1
 
                     for i in range(compteur):
-                        txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}", f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}", max_chars=500) 
+                        txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                           f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                           key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500) 
 
 st.write(" ----------------------------- ")                
                     
