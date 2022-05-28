@@ -13,7 +13,7 @@ liste_medoc.sort()
 
 col1, col2 = st.columns(2)
 col1.subheader('Liste des prescriptions')
-col2.subheader('Analyse de la prescritpion')
+col2.subheader('Analyse pharmaco-thérapeutique')
 
 option = st.sidebar.selectbox(
      "Choisis un médicament. Petite astuce : Il suffit de cliquer sur la barre de recherche (pas besoin d'effacer) et de taper les première lettres du"
@@ -39,7 +39,7 @@ if "liste_presc" in st.session_state:
           col1, col2 = st.columns(2)
           col1.write(medoc)
           with col2 :
-               with st.expander("Analyse"):                                  
+               with st.expander("Analyse de la prescritpion"):                                  
                     compteur = 0
                     for i in data_frame.index: 
                         if i == medoc:
