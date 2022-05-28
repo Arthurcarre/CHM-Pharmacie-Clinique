@@ -13,7 +13,7 @@ liste_medoc.sort()
 
 col1, col2 = st.columns(2)
 col1.subheader('Liste des prescriptions')
-col2.subheader('Commentaires à adapter')
+col2.subheader('Analyse de la prescritpion')
 
 option = st.sidebar.selectbox(
      "Choisis un médicament. Petite astuce : Il suffit de cliquer sur la barre de recherche (pas besoin d'effacer) et de taper les première lettres du"
@@ -39,7 +39,7 @@ if "liste_presc" in st.session_state:
           col1, col2 = st.columns(2)
           col1.write(medoc)
           with col2 :
-               with st.expander("Commentaires"):                                  
+               with st.expander("Analyse"):                                  
                     compteur = 0
                     for i in data_frame.index: 
                         if i == medoc:
@@ -48,7 +48,7 @@ if "liste_presc" in st.session_state:
                     for i in range(compteur):
                         txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}")
                         if txt :                
-                              st.text_area(None, 
+                              st.text_area("À adatper selon le contexte", 
                                           f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                           key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500) 
 
