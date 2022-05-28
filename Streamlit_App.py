@@ -30,7 +30,7 @@ if st.sidebar.button("Ajouter le médicament"):
      liste_presc.append(option)
      st.session_state.liste_presc = liste_presc
 
-if st.sidebar.button("Réinitialiser la prescritpion"):
+if st.sidebar.button("Réinitialiser la liste des prescriptions"):
      if 'liste_presc' in st.session_state:
             del st.session_state.liste_presc
                
@@ -39,7 +39,7 @@ if "liste_presc" in st.session_state:
           col1, col2 = st.columns(2)
           col1.write(medoc)
           with col2 :
-               with st.expander("Analyse de la prescritpion"):                                  
+               with st.expander("Analyse de la prescription"):                                  
                     compteur = 0
                     for i in data_frame.index: 
                         if i == medoc:
@@ -50,7 +50,7 @@ if "liste_presc" in st.session_state:
                         if txt :                
                               st.text_area("À adatper selon le contexte", 
                                           f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                          key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500) 
+                                          key = medoc, max_chars=500) 
 
 st.write(" ----------------------------- ")                
                     
