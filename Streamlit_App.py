@@ -46,7 +46,8 @@ if "liste_presc" in st.session_state:
                             compteur += 1
 
                     for i in range(compteur):
-                        txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}")
+                        txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                          key = medoc)
                         if txt :                
                               st.text_area("À adatper selon le contexte", 
                                           f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
