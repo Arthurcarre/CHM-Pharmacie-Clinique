@@ -193,7 +193,6 @@ option2 = st.sidebar.selectbox(
      Listes_medocs.index)
 
 if isinstance((Listes_medocs.loc[{option2}, 'Listes']), float) == False :
-     st.write(f"{Listes_medocs.loc[{option2}, 'Listes']}")
      st.text_area(option2, 
                   f"{Listes_medocs.loc[{option2}, 'Listes']}",
                   key = option2)
