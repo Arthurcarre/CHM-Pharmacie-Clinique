@@ -193,10 +193,10 @@ option2 = st.sidebar.selectbox(
      Listes_medocs.index)
 st.write(f"option2 = {option2}")
 st.write(f"le type de option2 = {type(option2)}")
-st.write(f"str(option2) == '# Choisir une liste de médicaments' : {str(option2) == '# Choisir une liste de médicaments'}")
+st.write(f"str(option2) == '# Choisir une liste de médicaments' : {option2 == '# Choisir une liste de médicaments'}")
 
-lettre = "# Choisir une liste de médicaments"
-if str(option2) != lettre :
+lettre = "# Choisir une liste de médicaments" 
+if option2 != lettre :
      st.text_area(option2, 
                   f"{Listes_medocs.loc[{str(option2)}, 'Listes'][0]}",
                   key = option2)
