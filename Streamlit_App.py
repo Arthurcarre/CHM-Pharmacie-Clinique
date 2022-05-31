@@ -44,7 +44,7 @@ if "liste_presc" in st.session_state:
                     for i in data_frame.index: 
                         if i == medoc:
                             compteur += 1
-                                                                                               f"{data_frame.loc[{medoc}, 'Category'][i]}"
+
                     for i in range(compteur):                   
                          if i == 0 :
                               if data_frame.loc[{medoc}, 'Category'][i] != None :
