@@ -191,7 +191,10 @@ Listes_medocs.set_index('Index_L', inplace=True)
 option2 = st.sidebar.selectbox(
      "Choisis une liste pour la consulter.",
      Listes_medocs.index)
-st.write(type(Listes_medocs.loc[{option2}, 'Listes']))
+
 if isinstance((Listes_medocs.loc[{option2}, 'Listes']), float) == False :
      st.write(f"{Listes_medocs.loc[{option2}, 'Listes']}")
+     st.text_area(option2, 
+                  f"{Listes_medocs.loc[{option2}, 'Listes']}",
+                  key = option2)
 
