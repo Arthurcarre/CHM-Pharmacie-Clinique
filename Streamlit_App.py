@@ -192,6 +192,6 @@ option2 = st.sidebar.selectbox(
      "Choisis une liste pour la consulter.",
      Listes_medocs.index)
 
-if Listes_medocs.loc[{option2}, 'Listes'] != 1 :
+if float(Listes_medocs.loc[{option2}, 'Listes']) != 1 :
      st.write(f"{Listes_medocs.loc[{option2}, 'Listes']}")
 
