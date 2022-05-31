@@ -191,7 +191,9 @@ Listes_medocs.set_index('Index_L', inplace=True)
 option2 = st.sidebar.selectbox(
      "Choisis une liste pour la consulter.",
      Listes_medocs.index)
-
+st.write(f"option2 = {option2}")
+st.write(f"le type de option2 = {type(option2)}")
+st.write(f"str(option2) == '# Choisir une liste de médicaments' : {str(option2) == "# Choisir une liste de médicaments"}")
 if str(option2) != "# Choisir une liste de médicaments" :
      st.text_area(option2, 
                   f"{Listes_medocs.loc[{str(option2)}, 'Listes'][0]}",
