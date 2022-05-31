@@ -183,12 +183,13 @@ if "liste_presc" in st.session_state:
                     for name in pro_convuls_name : 
                          st.write(f"\n {name}")
     
+st.sidebar.write(" ----------------------------- ")    
+
 Listes_medocs = pd.read_csv('Listes_medicaments.csv')
 Listes_medocs.set_index('Index_L', inplace=True)
 
 option2 = st.sidebar.selectbox(
-     "Choisis un médicament. Petite astuce : Il suffit de cliquer sur la barre de recherche (pas besoin d'effacer) et de taper les première lettres du"
-     " médicament (DCI ou Princeps).",
+     "Choisis une liste pour la consulter.",
      Listes_medocs.index)
 
 if Listes_medocs.loc[{option2}, 'Listes'] != 0 :
