@@ -10,10 +10,6 @@ data_frame.set_index('Index', inplace=True)
 
 liste_medoc = [str(medoc) for medoc in set(data_frame.index)]
 liste_medoc.sort()
-st.write(f"{type(data_frame.loc['# Choisir un médicament', 'Category'])}")
-col1, col2 = st.columns(2)
-col1.subheader('Liste des prescriptions')
-col2.subheader('Analyse pharmaco-thérapeutique')
 
 option = st.sidebar.selectbox(
      "Choisis un médicament. Petite astuce : Il suffit de cliquer sur la barre de recherche (pas besoin d'effacer) et de taper les première lettres du"
@@ -33,7 +29,11 @@ if st.sidebar.button("Ajouter le médicament"):
 if st.sidebar.button("Réinitialiser la liste des prescriptions"):
      if 'liste_presc' in st.session_state:
             del st.session_state.liste_presc
-               
+
+col1, col2 = st.columns(2)
+col1.subheader('Liste des prescriptions')
+col2.subheader('Analyse pharmaco-thérapeutique')
+
 if "liste_presc" in st.session_state:
      for medoc in st.session_state.liste_presc :  
           col1, col2 = st.columns(2)
@@ -182,4 +182,15 @@ if "liste_presc" in st.session_state:
                with st.expander("Médicament(s) proconvulsivant(s) de la prescription"):
                     for name in pro_convuls_name : 
                          st.write(f"\n {name}")
-     
+    
+Listes_medocs = pd.read_csv('Listes_medicaments.csv')
+Listes_medocs.set_index('Index_L', inplace=True)
+
+option2 = st.sidebar.selectbox(
+     "Choisis un médicament. Petite astuce : Il suffit de cliquer sur la barre de recherche (pas besoin d'effacer) et de taper les première lettres du"
+     " médicament (DCI ou Princeps).",
+     Listes_medocs.index)
+
+if Listes_medocs.loc[{option2}, 'Listes'] != 0 :
+     st.write(f"{Listes_medocs.loc[{option2}, 'Listes']}")
+
