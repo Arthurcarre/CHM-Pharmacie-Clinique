@@ -10,7 +10,7 @@ data_frame.set_index('Index', inplace=True)
 
 liste_medoc = [str(medoc) for medoc in set(data_frame.index)]
 liste_medoc.sort()
-st.write(f"{data_frame.loc['# Choisir un médicament', 'Category']}")
+st.write(f"{type(data_frame.loc['# Choisir un médicament', 'Category'])}")
 col1, col2 = st.columns(2)
 col1.subheader('Liste des prescriptions')
 col2.subheader('Analyse pharmaco-thérapeutique')
