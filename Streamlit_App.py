@@ -192,7 +192,7 @@ option2 = st.sidebar.selectbox(
      "Choisis une liste pour la consulter.",
      Listes_medocs.index)
 
-if option2 != "# Choisir une liste de médicaments" :
+if str(option2) != "# Choisir une liste de médicaments" :
      st.text_area(option2, 
                   f"{Listes_medocs.loc[{str(option2)}, 'Listes'][0]}",
                   key = option2)
