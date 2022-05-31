@@ -44,14 +44,27 @@ if "liste_presc" in st.session_state:
                     for i in data_frame.index: 
                         if i == medoc:
                             compteur += 1
-
-                    for i in range(compteur):
-                        txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                          key = medoc)
-                        if txt :                
-                              st.text_area("À adatper selon le contexte", 
-                                          f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                          key = medoc, max_chars=500) 
+                                                                                               f"{data_frame.loc[{medoc}, 'Category'][i]}"
+                    for i in range(compteur):                   
+                         if i == 0 :
+                              if data_frame.loc[{medoc}, 'Category'][i] != None :
+                                   st.write(f"{data_frame.loc[{medoc}, 'Category'][i]}")
+                              txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                               key = medoc)
+                              if txt :                
+                                   st.text_area("À adatper selon le contexte", 
+                                               f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                               key = medoc, max_chars=500)
+                         else :
+                              if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
+                                   st.write(" ----------------------------- ") 
+                                   st.write(f"{data_frame.loc[{medoc}, 'Category'][i]}")
+                              txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                               key = medoc)
+                              if txt :                
+                                   st.text_area("À adatper selon le contexte", 
+                                               f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                               key = medoc, max_chars=500)
 
 st.write(" ----------------------------- ")                
                     
