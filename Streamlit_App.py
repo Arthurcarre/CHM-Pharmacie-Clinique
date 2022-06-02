@@ -27,8 +27,11 @@ if st.sidebar.button("Ajouter le médicament"):
      st.session_state.liste_presc = liste_presc
 
 if st.sidebar.button("Retirer le médicament"):
-     liste_presc.remove(option)
-     st.session_state.liste_presc = liste_presc
+     try : 
+          liste_presc.remove(option)
+          st.session_state.liste_presc = liste_presc
+     except ValueError :
+          st.error("Tu ne peux pas retirer des prescritpions un médicament qui n'est pas déjà dans les prescriptions !")
 
 if st.sidebar.button("Réinitialiser la liste des prescriptions"):
      if 'liste_presc' in st.session_state:
