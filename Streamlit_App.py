@@ -49,22 +49,30 @@ if "liste_presc" in st.session_state:
                          if i == 0 :
                               if data_frame.loc[{medoc}, 'Category'][i] != 0 :
                                    st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
-                              txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                               key = medoc)
-                              if txt :                
-                                   st.text_area("À adatper selon le contexte", 
-                                               f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                               key = medoc, max_chars=500)
+                                   txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                                  key = medoc)
+                                   if txt :                
+                                        st.text_area("À adatper selon le contexte", 
+                                                  f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                                  key = medoc, max_chars=500)
+                              else :
+                                   txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                           f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                           key = medoc, max_chars=500)
                          else :
-                              if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
+                              if data_frame.loc[{medoc}, 'Category'][i] != 0 :
                                    st.write(" ----------------------------- ") 
                                    st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
-                              txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                               key = medoc)
-                              if txt :                
-                                   st.text_area("À adatper selon le contexte", 
-                                               f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                               key = medoc, max_chars=500)
+                                   txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                                    key = medoc)
+                                   if txt :                
+                                        st.text_area("À adatper selon le contexte", 
+                                                    f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                                    key = medoc, max_chars=500)
+                              else :
+                                   txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                           f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                           key = medoc), max_chars=500)
 
 st.write(" ----------------------------- ")                
                     
