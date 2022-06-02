@@ -37,9 +37,8 @@ if st.sidebar.button("Réinitialiser la liste des prescriptions"):
      if 'liste_presc' in st.session_state:
             del st.session_state.liste_presc
 
-col1, col2 = st.columns(2)
-col1.subheader('Liste des prescriptions')
-col2.subheader('Analyse pharmaco-thérapeutique')
+st.header('Analyse pharmaco-thérapeutique')
+st.subheader('Liste des prescriptions')
 
 if "liste_presc" in st.session_state:
      for medoc in st.session_state.liste_presc :  
@@ -62,10 +61,10 @@ if "liste_presc" in st.session_state:
                                    st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                    txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                                   key = int(np.random.randint(0, 100000, size=(1, 1))))
-                                   if txt :                
-                                        st.text_area("À adatper selon le contexte", 
-                                                  f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                  key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                         if txt :                
+                              st.text_area("À adatper selon le contexte", 
+                                        f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                        key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
                          else :
                               if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
