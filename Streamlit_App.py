@@ -43,7 +43,7 @@ col2.subheader('Analyse pharmaco-thérapeutique')
 
 if "liste_presc" in st.session_state:
      for medoc in st.session_state.liste_presc :  
-          col1, col2 = st.columns(2)
+          col1, col2 = st.columns([1, 3])
           col1.write(medoc)
           with col2 :
                with st.expander("Analyse de la prescription"):                                  
