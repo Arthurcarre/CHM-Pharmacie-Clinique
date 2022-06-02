@@ -26,6 +26,10 @@ if st.sidebar.button("Ajouter le médicament"):
      liste_presc.append(option)
      st.session_state.liste_presc = liste_presc
 
+if st.sidebar.button("Retirer le médicament"):
+     liste_presc.remove(option)
+     st.session_state.liste_presc = liste_presc
+
 if st.sidebar.button("Réinitialiser la liste des prescriptions"):
      if 'liste_presc' in st.session_state:
             del st.session_state.liste_presc
