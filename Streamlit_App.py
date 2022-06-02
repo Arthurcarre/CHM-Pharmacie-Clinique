@@ -72,7 +72,7 @@ if "liste_presc" in st.session_state:
                               else :
                                    txt = st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                           key = medoc), max_chars=500)
+                                           key = medoc, max_chars=500)
 
 st.write(" ----------------------------- ")                
                     
