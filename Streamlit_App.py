@@ -69,9 +69,9 @@ if "liste_presc" in st.session_state:
                               if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                           key = medoc
+                                           key = medoc)
                               else :     
-                                   if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1]:
+                                   if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
                                         st.write(" ----------------------------- ") 
                                         st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                    txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
