@@ -78,22 +78,34 @@ if "liste_presc" in st.session_state:
                                            key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
                               else :     
                                    if data_frame.loc[{medoc}, 'Category'][i] == data_frame.loc[{medoc}, 'Category'][i-1]:
-                                        txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                                         key = int(np.random.randint(0, 100000, size=(1, 1))))
-                                        if txt :                
-                                             st.text_area("À adatper selon le contexte", 
-                                                         f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                         key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                        try :
+                                             if txt :                
+                                                  st.text_area("À adatper selon le contexte", 
+                                                              f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                                              key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                        except :
+                                             txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                                              key = int(np.random.randint(0, 100000, size=(1, 1))))
+                                             if txt :                
+                                                  st.text_area("À adatper selon le contexte", 
+                                                              f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                                              key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
 
                                    if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1]:
                                         st.write(" ----------------------------- ") 
                                         st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
-                                        txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                                         key = int(np.random.randint(0, 100000, size=(1, 1))))
-                                        if txt :                
-                                             st.text_area("À adatper selon le contexte", 
-                                                         f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                         key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                        try :
+                                             if txt :                
+                                                  st.text_area("À adatper selon le contexte", 
+                                                              f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                                              key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                        except :
+                                             txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                                              key = int(np.random.randint(0, 100000, size=(1, 1))))
+                                             if txt :                
+                                                  st.text_area("À adatper selon le contexte", 
+                                                              f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                                              key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
 
 st.write(" ----------------------------- ")                
                     
