@@ -47,7 +47,7 @@ if "liste_presc" in st.session_state:
 
                     for i in range(compteur):                   
                          if i == 0 :
-                              if data_frame.loc[{medoc}, 'Category'][i] == 0 :
+                              if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                            key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)                              
@@ -60,7 +60,7 @@ if "liste_presc" in st.session_state:
                                                   f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                                   key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
                          else :
-                              if data_frame.loc[{medoc}, 'Category'][i] == 0 :
+                              if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                            key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
