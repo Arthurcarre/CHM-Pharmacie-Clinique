@@ -47,7 +47,7 @@ if "liste_presc" in st.session_state:
 
                     for i in range(compteur):                   
                          if i == 0 :
-                              if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc['# Choisir un médicament', 'Category'] :
+                              if data_frame.loc[{medoc}, 'Category'][i] != 0 :
                                    st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                               txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                                key = medoc)
