@@ -71,7 +71,7 @@ if "liste_presc" in st.session_state:
                                    no_event = streamlit_bokeh_events(
                                        copy_button,
                                        events="GET_TEXT",
-                                       key="get_text",
+                                       key=int(np.random.randint(0, 100000, size=(1, 1))),
                                        refresh_on_update=True,
                                        override_height=75,
                                        debounce_time=0)
@@ -94,7 +94,7 @@ if "liste_presc" in st.session_state:
                                         no_event = streamlit_bokeh_events(
                                             copy_button,
                                             events="GET_TEXT",
-                                            key="get_text",
+                                            key=int(np.random.randint(0, 100000, size=(1, 1))),
                                             refresh_on_update=True,
                                             override_height=75,
                                             debounce_time=0)
@@ -114,7 +114,7 @@ if "liste_presc" in st.session_state:
                                    no_event = streamlit_bokeh_events(
                                        copy_button,
                                        events="GET_TEXT",
-                                       key="get_text",
+                                       key=int(np.random.randint(0, 100000, size=(1, 1))),
                                        refresh_on_update=True,
                                        override_height=75,
                                        debounce_time=0)
@@ -139,7 +139,7 @@ if "liste_presc" in st.session_state:
                                         no_event = streamlit_bokeh_events(
                                             copy_button,
                                             events="GET_TEXT",
-                                            key="get_text",
+                                            key=int(np.random.randint(0, 100000, size=(1, 1))),
                                             refresh_on_update=True,
                                             override_height=75,
                                             debounce_time=0)
