@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from bokeh.models.widgets import Button
+from bokeh.models import CustomJS
+from streamlit_bokeh_events import streamlit_bokeh_events
 
 logo = st.sidebar.image('img/logo_chm.png')
 st.sidebar.caption("Guide d'analyse pharmacothérapeutique chez le patient MUPA.")
@@ -56,7 +59,22 @@ if "liste_presc" in st.session_state:
                               if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                           key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)                              
+                                           key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                   text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
+                                   copy_dict = {"content": text_to_be_copied}
+
+                                   copy_button = Button(label="Copy Text")
+                                   copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                                       navigator.clipboard.writeText(content);
+                                       """))
+
+                                   no_event = streamlit_bokeh_events(
+                                       copy_button,
+                                       events="GET_TEXT",
+                                       key="get_text",
+                                       refresh_on_update=True,
+                                       override_height=75,
+                                       debounce_time=0)
                               else :
                                    st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                    txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
@@ -65,11 +83,41 @@ if "liste_presc" in st.session_state:
                                         st.text_area("À adatper selon le contexte", 
                                                   f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                                   key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                        text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
+                                        copy_dict = {"content": text_to_be_copied}
+
+                                        copy_button = Button(label="Copy Text")
+                                        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                                            navigator.clipboard.writeText(content);
+                                            """))
+
+                                        no_event = streamlit_bokeh_events(
+                                            copy_button,
+                                            events="GET_TEXT",
+                                            key="get_text",
+                                            refresh_on_update=True,
+                                            override_height=75,
+                                            debounce_time=0)
                          else :
                               if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                            key = medoc)
+                                   text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
+                                   copy_dict = {"content": text_to_be_copied}
+
+                                   copy_button = Button(label="Copy Text")
+                                   copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                                       navigator.clipboard.writeText(content);
+                                       """))
+
+                                   no_event = streamlit_bokeh_events(
+                                       copy_button,
+                                       events="GET_TEXT",
+                                       key="get_text",
+                                       refresh_on_update=True,
+                                       override_height=75,
+                                       debounce_time=0)
                               else :     
                                    if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
                                         st.write(" ----------------------------- ") 
@@ -80,6 +128,21 @@ if "liste_presc" in st.session_state:
                                         st.text_area("À adatper selon le contexte", 
                                                     f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                                     key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                        text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
+                                        copy_dict = {"content": text_to_be_copied}
+
+                                        copy_button = Button(label="Copy Text")
+                                        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                                            navigator.clipboard.writeText(content);
+                                            """))
+
+                                        no_event = streamlit_bokeh_events(
+                                            copy_button,
+                                            events="GET_TEXT",
+                                            key="get_text",
+                                            refresh_on_update=True,
+                                            override_height=75,
+                                            debounce_time=0)
 
 st.write(" ----------------------------- ")                
                     
