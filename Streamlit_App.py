@@ -63,7 +63,7 @@ if "liste_presc" in st.session_state:
                                    text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                    copy_dict = {"content": text_to_be_copied}
 
-                                   copy_button = Button(label="Copy Text")
+                                   copy_button = Button(label="Copier le texte")
                                    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
                                        navigator.clipboard.writeText(content);
                                        """))
@@ -86,7 +86,7 @@ if "liste_presc" in st.session_state:
                                         text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                         copy_dict = {"content": text_to_be_copied}
 
-                                        copy_button = Button(label="Copy Text")
+                                        copy_button = Button(label="Copier le texte")
                                         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
                                             navigator.clipboard.writeText(content);
                                             """))
@@ -106,7 +106,7 @@ if "liste_presc" in st.session_state:
                                    text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                    copy_dict = {"content": text_to_be_copied}
 
-                                   copy_button = Button(label="Copy Text")
+                                   copy_button = Button(label="Copier le texte")
                                    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
                                        navigator.clipboard.writeText(content);
                                        """))
@@ -131,7 +131,7 @@ if "liste_presc" in st.session_state:
                                         text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                         copy_dict = {"content": text_to_be_copied}
 
-                                        copy_button = Button(label="Copy Text")
+                                        copy_button = Button(label="Copier le texte")
                                         copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
                                             navigator.clipboard.writeText(content);
                                             """))
