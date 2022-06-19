@@ -26,8 +26,11 @@ if "liste_presc" not in st.session_state:
      liste_presc = []
 
 if st.sidebar.button("Ajouter le médicament"):
-     liste_presc.append(option)
-     st.session_state.liste_presc = liste_presc
+     if option not in liste_presc:
+          liste_presc.append(option)
+          st.session_state.liste_presc = liste_presc
+     else :
+          st.error("Tu ne peux pas ajouter deux fois le même médicament dans la liste des prescritpions !")
 
 if st.sidebar.button("Retirer le médicament"):
      try : 
