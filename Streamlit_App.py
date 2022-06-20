@@ -85,7 +85,7 @@ if "liste_presc" in st.session_state:
                                    if txt :                
                                         st.text_area("À adatper selon le contexte", 
                                                   f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                  key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                                  key = medoc)
                                         text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                         copy_dict = {"content": text_to_be_copied}
 
