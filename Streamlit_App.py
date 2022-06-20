@@ -154,7 +154,7 @@ if "liste_presc" in st.session_state:
                          st.write("""
          Nous recommandons de vérifier la présence d'intéraction médicamenteuse entre chaque médicament et l'inducteur enzymatique 
          à l'aide du détecteur d'intéraction médicamenteuse du Vidal ou de la dernière version récente du Thésaurus de l'ANSM (en s'assurant de vérifier
-         à la fois dans la partie "Anticonvulsivant inducteur enzymatique" mais aussi dans la partie propre du médicamennt inducteur enzymatique concerné.
+         à la fois dans la partie "Anticonvulsivant inducteur enzymatique" mais aussi dans la partie propre du médicamennt inducteur enzymatique concerné).
      """)
                     
 anticho_periph_num = []
