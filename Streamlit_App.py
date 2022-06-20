@@ -200,7 +200,7 @@ if "liste_presc" in st.session_state:
           if data_frame.loc[{medoc}, 'Inducteur_enz'][0] == 1 :
                st.warning("Inducteur enzymatique puissant")
                
-st.write(" ----------------------------- ")   
+     st.write(" ----------------------------- ")   
      
      if np.sum(anticho_periph_num) > 0 :
           col1, col2 = st.columns(2)
