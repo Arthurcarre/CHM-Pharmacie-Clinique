@@ -62,7 +62,7 @@ if "liste_presc" in st.session_state:
                               if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                           key = medoc
+                                           key = medoc)
                                    text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                    copy_dict = {"content": text_to_be_copied}
 
