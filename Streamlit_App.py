@@ -147,8 +147,14 @@ if "liste_presc" in st.session_state:
                                             override_height=75,
                                             debounce_time=0)  
                                         
-               if data_frame.loc[{medoc}, 'Inducteur_enz'][0] == 1 :
-                    st.warning("Inducteur enzymatique puissant")
+          if data_frame.loc[{medoc}, 'Inducteur_enz'][0] == 1 :
+               col1.warning("Inducteur enzymatique puissant")
+               col2.expander("Recommandation"):
+                    st.write("""
+         Nous recommandons de vérifier la présence d'intéraction médicamenteuse entre chaque médicament et l'inducteur enzymatique 
+         à l'aide du détecteur d'intéraction médicamenteuse du Vidal ou de la dernière version récente du Thésaurus de l'ANSM (en s'assurant de vérifier
+         à la fois dans la partie "Anticonvulsivant inducteur enzymatique" mais aussi dans la partie propre du médicamennt inducteur enzymatique concerné.
+     """)
                     
 anticho_periph_num = []
 anticho_periph_name = []
