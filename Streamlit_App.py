@@ -126,11 +126,11 @@ if "liste_presc" in st.session_state:
                                         st.write(" ----------------------------- ") 
                                         st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                    txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                                    key = int(np.random.randint(0, 100000, size=(1, 1))))
+                                                    key = medoc)
                                    if txt :                
                                         st.text_area("À adatper selon le contexte", 
                                                     f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                    key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500)
+                                                    key = medoc, max_chars=500)
                                         text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                         copy_dict = {"content": text_to_be_copied}
 
