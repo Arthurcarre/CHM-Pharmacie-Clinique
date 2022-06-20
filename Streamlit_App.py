@@ -199,6 +199,8 @@ if "liste_presc" in st.session_state:
           if data_frame.loc[{medoc}, 'Pro_convul'][0] == 1 :
                pro_convuls_num.append(int(data_frame.loc[{medoc}, 'Pro_convul'][0]))
                pro_convuls_name.append(medoc)
+          if data_frame.loc[{medoc}, 'Inducteur_enz'][0] == 1 :
+               st.warning("Inductueur enzymatique puissant")
      
      if np.sum(anticho_periph_num) > 0 :
           col1, col2 = st.columns(2)
