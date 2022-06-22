@@ -30,14 +30,14 @@ if st.sidebar.button("Ajouter le médicament"):
           liste_presc.append(option)
           st.session_state.liste_presc = liste_presc
      else :
-          st.error("Tu ne peux pas ajouter deux fois le même médicament dans la liste des prescritpions !")
+          st.error("ERROR : Tu ne peux pas ajouter deux fois le même médicament dans la liste des prescriptions !")
 
 if st.sidebar.button("Retirer le médicament"):
      try : 
           liste_presc.remove(option)
           st.session_state.liste_presc = liste_presc
      except ValueError :
-          st.error("Tu ne peux pas retirer des prescritpions un médicament qui n'est pas déjà dans les prescriptions !")
+          st.error("ERROR : Tu ne peux pas retirer des prescritpions un médicament qui n'est pas déjà dans les prescriptions !")
 
 if st.sidebar.button("Réinitialiser la liste des prescriptions"):
      if 'liste_presc' in st.session_state:
@@ -121,12 +121,15 @@ if "liste_presc" in st.session_state:
                                        refresh_on_update=True,
                                        override_height=75,
                                        debounce_time=0)
-                              else :     
-                                   if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
-                                        st.write(" ----------------------------- ") 
-                                        st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
-                                   txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                                    key = medoc)
+                              else :
+                                   try:
+                                        if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
+                                             st.write(" ----------------------------- ") 
+                                             st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
+                                        txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                                         key = medoc)
+                                   except streamlit.errors.DuplicateWidgetID :
+                                        st.error("ERROR : La base de données interne contient un duplicat (Nom de médicament + Condition). À corriger")
                                    if txt :                
                                         st.text_area("À adatper selon le contexte", 
                                                     f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
