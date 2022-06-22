@@ -128,7 +128,7 @@ if "liste_presc" in st.session_state:
                                              st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                         txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                                          key = medoc)
-                                   except streamlit.errors.DuplicateWidgetID :
+                                   except DuplicateWidgetID :
                                         st.error("ERROR : La base de données interne contient un duplicat (Nom de médicament + Condition). À corriger")
                                    if txt :                
                                         st.text_area("À adatper selon le contexte", 
