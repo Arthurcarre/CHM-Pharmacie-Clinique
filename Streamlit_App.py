@@ -122,13 +122,13 @@ if "liste_presc" in st.session_state:
                                        override_height=75,
                                        debounce_time=0)
                               else :
-                                   try:
+                                   try :
                                         if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
                                              st.write(" ----------------------------- ") 
                                              st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                         txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                                          key = medoc)
-                                   except streamlit.errors.DuplicateWidgetID :
+                                   except :
                                         st.error("ERROR : La base de données interne contient un duplicat (Nom de médicament + Condition). À corriger")
                                    if txt :                
                                         st.text_area("À adatper selon le contexte", 
