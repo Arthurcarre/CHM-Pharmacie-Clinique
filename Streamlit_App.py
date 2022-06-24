@@ -76,7 +76,7 @@ if "liste_presc" in st.session_state:
                                        events="GET_TEXT",
                                        key=int(np.random.randint(0, 100000, size=(1, 1))),
                                        refresh_on_update=True,
-                                       override_height=50,
+                                       override_height=40,
                                        debounce_time=0)
                               else :
                                    st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
@@ -99,7 +99,7 @@ if "liste_presc" in st.session_state:
                                             events="GET_TEXT",
                                             key=int(np.random.randint(0, 100000, size=(1, 1))),
                                             refresh_on_update=True,
-                                            override_height=50,
+                                            override_height=40,
                                             debounce_time=0)
                          else :
                               if data_frame.loc[{medoc}, 'Category'][i] == '0' :
@@ -119,7 +119,7 @@ if "liste_presc" in st.session_state:
                                        events="GET_TEXT",
                                        key=int(np.random.randint(0, 100000, size=(1, 1))),
                                        refresh_on_update=True,
-                                       override_height=50,
+                                       override_height=40,
                                        debounce_time=0)
                               else :
                                    try :
@@ -147,7 +147,7 @@ if "liste_presc" in st.session_state:
                                             events="GET_TEXT",
                                             key=int(np.random.randint(0, 100000, size=(1, 1))),
                                             refresh_on_update=True,
-                                            override_height=50,
+                                            override_height=40,
                                             debounce_time=0)  
                                         
           if data_frame.loc[{medoc}, 'Inducteur_enz'][0] == 1 :
