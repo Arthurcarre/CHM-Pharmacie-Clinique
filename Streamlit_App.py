@@ -265,6 +265,13 @@ if "liste_presc" in st.session_state:
                with st.expander("Médicament(s) potentiellement inapproprié(s) chez la personne âgée de la prescription"):
                     for name in medoc_inaprop_name : 
                          st.write(f"\n {name}")
+     if np.sum(bradycardi_num) > 0 :
+          col1, col2 = st.columns(2)
+          col1.write(f"Nombre de médicament bradycardisant dans cette prescription : {np.sum(bradycardi_num)}")
+          with col2 :
+               with st.expander("Médicament(s) bradycardisant(s)"):
+                    for name in bradycardi_name : 
+                         st.write(f"\n {name}")
      if np.sum(hypoT_ortho_num) > 0 :
           col1, col2 = st.columns(2)
           col1.write(f"Nombre de médicament à l'origine d'hypotension (hors antihypertenseur), notamment orthostatique, dans cette prescription : {np.sum(hypoT_ortho_num)}")
