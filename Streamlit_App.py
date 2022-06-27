@@ -204,6 +204,9 @@ if "liste_presc" in st.session_state:
           if data_frame.loc[{medoc}, 'Médicam inapprop'][0] == 1 :
                medoc_inaprop_num.append(int(data_frame.loc[{medoc}, 'Médicam inapprop'][0]))
                medoc_inaprop_name.append(medoc)
+          if data_frame.loc[{medoc}, 'Bradycardisant'][0] == 1 :
+               bradycardi_num.append(int(data_frame.loc[{medoc}, 'Bradycardisant'][0]))
+               bradycardi_name.append(medoc)
           if data_frame.loc[{medoc}, 'HypoT_Ortho'][0] == 1 :
                hypoT_ortho_num.append(int(data_frame.loc[{medoc}, 'HypoT_Ortho'][0]))
                hypoT_ortho_name.append(medoc)
