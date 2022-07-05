@@ -63,6 +63,7 @@ if "liste_presc" in st.session_state:
                               compteur2 += 1
                          if i == 0 :
                               if compteur2 == 1 :
+                                  st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                   st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                            key = medoc)
@@ -73,6 +74,14 @@ if "liste_presc" in st.session_state:
                                   copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
                                        navigator.clipboard.writeText(content);
                                        """))
+                                   
+                                  no_event = streamlit_bokeh_events(
+                                       copy_button,
+                                       events="GET_TEXT",
+                                       key=int(np.random.randint(0, 100000, size=(1, 1))),
+                                       refresh_on_update=True,
+                                       override_height=40,
+                                       debounce_time=0)
                                    
                               elif data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
