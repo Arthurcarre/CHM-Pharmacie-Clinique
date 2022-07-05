@@ -59,7 +59,7 @@ if "liste_presc" in st.session_state:
 
                     compteur2 = 0
                     for i in range(compteur):
-                         if data_frame.loc[{medoc}, 'Category'][i] == 'Contrôle des indications' :
+                         if data_frame.loc[{medoc}, 'Category'][i] == 'Contrôle des indications :' :
                               compteur2 += 1
                          st.write(f"Le compteur 2 = {compteur2}")
                          if i == 0 :
