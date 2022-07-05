@@ -57,8 +57,23 @@ if "liste_presc" in st.session_state:
                         if i == medoc:
                             compteur += 1
 
-                    for i in range(compteur):                   
+                    compteur2 = 0
+                    for i in range(compteur):
+                         if data_frame.loc[{medoc}, 'Category'][i] == 'Contrôle des indications' :
+                              compteur2 += 1
                          if i == 0 :
+                              if compteur2 == 1 :
+                                  st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                           f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
+                                           key = medoc)
+                                   text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
+                                   copy_dict = {"content": text_to_be_copied}
+
+                                   copy_button = Button(label="Copier le texte")
+                                   copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                                       navigator.clipboard.writeText(content);
+                                       """))
+                                   
                               if data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
