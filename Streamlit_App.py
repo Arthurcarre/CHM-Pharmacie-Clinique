@@ -74,7 +74,7 @@ if "liste_presc" in st.session_state:
                                        navigator.clipboard.writeText(content);
                                        """))
                                    
-                              if data_frame.loc[{medoc}, 'Category'][i] == '0' :
+                              elif data_frame.loc[{medoc}, 'Category'][i] == '0' :
                                    st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                            f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                            key = medoc)
