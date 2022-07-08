@@ -25,14 +25,14 @@ if "liste_presc" in st.session_state:
 if "liste_presc" not in st.session_state:
      liste_presc = []
 
-if st.sidebar.button("**Ajouter** le médicament"):
+if st.sidebar.button("Ajouter le médicament"):
      if option not in liste_presc:
           liste_presc.append(option)
           st.session_state.liste_presc = liste_presc
      else :
           st.error("ERROR : Tu ne peux pas ajouter deux fois le même médicament dans la liste des prescriptions !")
 
-if st.sidebar.button("**Retirer** le médicament"):
+if st.sidebar.button("Retirer le médicament"):
      try : 
           liste_presc.remove(option)
           st.session_state.liste_presc = liste_presc
