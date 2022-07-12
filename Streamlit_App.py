@@ -238,65 +238,65 @@ if "liste_presc" in st.session_state:
      
      if np.sum(medoc_inaprop_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **potentiellement inapproprié chez la personne âgée** dans cette prescription : {np.sum(medoc_inaprop_num)}")
+          col1.write(f"Nombre de médicament **potentiellement inapproprié chez la personne âgée** dans ce bilan médicamenteux : {np.sum(medoc_inaprop_num)}")
           with col2 :
-               with st.expander("Médicament(s) potentiellement inapproprié(s) chez la personne âgée de la prescription"):
+               with st.expander("Médicament(s) potentiellement inapproprié(s) chez la personne âgée du bilan médicamenteux"):
                     for name in medoc_inaprop_name : 
                          st.write(f"\n {name}")
      if np.sum(hypoT_ortho_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **à l'origine d'hypotension** (hors antihypertenseur), notamment orthostatique, dans cette prescription : {np.sum(hypoT_ortho_num)}")
+          col1.write(f"Nombre de médicament **à l'origine d'hypotension** (hors antihypertenseur), notamment orthostatique, dans ce bilan médicamenteux : {np.sum(hypoT_ortho_num)}")
           with col2 :
-               with st.expander("Médicament(s) à l'origine d'hypotension (hors antihypertenseur), notamment orthostatique, de la prescription"):
+               with st.expander("Médicament(s) à l'origine d'hypotension (hors antihypertenseur), notamment orthostatique, du bilan médicamenteux"):
                     for name in hypoT_ortho_name : 
                          st.write(f"\n {name}")                         
      if np.sum(depresseur_SNC_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **dépresseur du système nerveux central** dans cette prescription : {np.sum(depresseur_SNC_num)}")
+          col1.write(f"Nombre de médicament **dépresseur du système nerveux central** dans ce bilan médicamenteux : {np.sum(depresseur_SNC_num)}")
           with col2 :
-               with st.expander("Médicament(s) dépresseur(s) du système nerveux central de la prescription"):
+               with st.expander("Médicament(s) dépresseur(s) du système nerveux central du bilan médicamenteux"):
                     for name in depresseur_SNC_name : 
                          st.write(f"\n {name}")     
      if np.sum(anticholinergics_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **anticholinergique** de cette prescription : {np.sum(anticholinergics_num)}")
+          col1.write(f"Nombre de médicament **anticholinergique** de ce bilan médicamenteux : {np.sum(anticholinergics_num)}")
           with col2 :
-               with st.expander("Médicament(s) anticholinergique(s) de la prescription"):
+               with st.expander("Médicament(s) anticholinergique(s) du bilan médicamenteux"):
                     for name in anticholinergics_name : 
                          st.write(f"\n {name}")
      if np.sum(torsadogene_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **torsadogène** dans cette prescription : {np.sum(torsadogene_num)}")
+          col1.write(f"Nombre de médicament **torsadogène** dans ce bilan médicamenteux : {np.sum(torsadogene_num)}")
           with col2 :
-               with st.expander("Médicament(s) torsadogène(s) de la prescription"):
+               with st.expander("Médicament(s) torsadogène(s) du bilan médicamenteux"):
                     for name in torsadogene_name : 
                          st.write(f"\n {name}")
      if np.sum(bradycardi_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **bradycardisant** dans cette prescription : {np.sum(bradycardi_num)}")
+          col1.write(f"Nombre de médicament **bradycardisant** dans ce bilan médicamenteux : {np.sum(bradycardi_num)}")
           with col2 :
                with st.expander("Médicament(s) bradycardisant(s)"):
                     for name in bradycardi_name : 
                          st.write(f"\n {name}")
      if np.sum(hypok_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **hypokaliémiant** dans cette prescription : {np.sum(hypok_num)}")
+          col1.write(f"Nombre de médicament **hypokaliémiant** dans ce bilan médicamenteux : {np.sum(hypok_num)}")
           with col2 :
-               with st.expander("Médicament(s) hypokaliémiant(s) de la prescription"):
+               with st.expander("Médicament(s) hypokaliémiant(s) du bilan médicamenteux"):
                     for name in hypok_name : 
                          st.write(f"\n {name}")
      if np.sum(hyperk_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **hyperkaliémiant** dans cette prescription : {np.sum(hyperk_num)}")
+          col1.write(f"Nombre de médicament **hyperkaliémiant** dans ce bilan médicamenteux : {np.sum(hyperk_num)}")
           with col2 :
-               with st.expander("Médicament(s) hyperkaliémiant(s) de la prescription"):
+               with st.expander("Médicament(s) hyperkaliémiant(s) du bilan médicamenteux"):
                     for name in hyperk_name : 
                          st.write(f"\n {name}")                
      if np.sum(pro_convuls_num) > 0 :
           col1, col2 = st.columns(2)
-          col1.write(f"Nombre de médicament **proconvulsivant** dans cette prescription : {np.sum(pro_convuls_num)}")
+          col1.write(f"Nombre de médicament **proconvulsivant** dans ce bilan médicamenteux : {np.sum(pro_convuls_num)}")
           with col2 :
-               with st.expander("Médicament(s) proconvulsivant(s) de la prescription"):
+               with st.expander("Médicament(s) proconvulsivant(s) du bilan médicamenteux"):
                     for name in pro_convuls_name : 
                          st.write(f"\n {name}")
     
