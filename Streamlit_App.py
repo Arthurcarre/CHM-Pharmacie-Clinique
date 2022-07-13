@@ -11,8 +11,9 @@ LOGGER = get_logger(__name__)
 
 def main():
     st.set_page_config(
-        page_title="CheckDrugs VF",
-        page_icon="🇫🇷",
+        page_title="CheckDrugs",
+        page_icon="💊",
+        layout="wide"
     )
     logo = st.sidebar.image('img/logo_chm.png')
     st.sidebar.caption("Guide d'analyse pharmacothérapeutique chez le patient MUPA.")
