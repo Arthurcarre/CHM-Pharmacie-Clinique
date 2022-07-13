@@ -5,17 +5,26 @@ from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 from streamlit.logger import get_logger
+from English_Version import 🇬🇧_English_Version
 
 LOGGER = get_logger(__name__)
 
-def run():
+def main():
     st.set_page_config(
         page_title="CheckDrugs VF",
         page_icon="🇫🇷",
     )
-    st.write(":flag-gb:")
     logo = st.sidebar.image('img/logo_chm.png')
     st.sidebar.caption("Guide d'analyse pharmacothérapeutique chez le patient MUPA.")
+    
+    pages = ("🇫🇷 Version Française", "🇬🇧 English Version")
+
+    page = st.sidebar.selectbox(label = "For the English version ↙️",
+                                options = pages,
+                                index = 0,
+                                )
+    if page == "🇬🇧 English Version":
+        🇬🇧_English_Version.main()
 
     data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
     data_frame.set_index('Index', inplace=True)
@@ -335,5 +344,5 @@ def about():
 # -----------------------------------------------------------------------------
      
 if __name__ == "__main__":
-    run()
+    main()
     about()
