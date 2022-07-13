@@ -25,7 +25,7 @@ def main():
                                 )
     if page == "🇬🇧 English Version":
         App_English_Version.run()
-     else :
+    else :
         def run():
             data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
             data_frame.set_index('Index', inplace=True)
