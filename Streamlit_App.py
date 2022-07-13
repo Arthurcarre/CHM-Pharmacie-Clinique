@@ -327,7 +327,7 @@ def run():
 def about():
     st.sidebar.markdown('---')
     st.sidebar.info('''
-        (c) 2022. CloudOpti Ltd. All rights reserved.
+        À compléter
         
         [GitHub repo](https://github.com/asehmi/st-media-service)
     ''')
