@@ -13,7 +13,7 @@ def run():
         page_title="CheckDrugs VF",
         page_icon="🇫🇷",
     )
-
+    st.write(":flag-gb:")
     logo = st.sidebar.image('img/logo_chm.png')
     st.sidebar.caption("Guide d'analyse pharmacothérapeutique chez le patient MUPA.")
 
