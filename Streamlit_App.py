@@ -332,7 +332,7 @@ def main():
                  st.text_area(option2, 
                               f"{Listes_medocs.loc[{str(option2)}, 'Listes'][0]}",
                               key = option2)
-    run()
+        run()
 # -----------------------------------------------------------------------------
 
 def about():
