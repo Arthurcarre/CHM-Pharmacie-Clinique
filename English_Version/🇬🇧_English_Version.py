@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import Streamlit_App
 from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
@@ -8,7 +9,7 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-def run():
+def main():
     st.set_page_config(
         page_title="CheckDrugs EN",
         page_icon="🇬🇧",
@@ -16,6 +17,15 @@ def run():
 
     logo = st.sidebar.image('img/logo_chm.png')
     st.sidebar.caption("Guide to drug therapy analysis in the EME patient.")
+    
+    pages = ("🇫🇷 Version Française", "🇬🇧 English Version")
+
+    page = st.sidebar.selectbox(label = "For the French version ↙️",
+                                options = pages,
+                                index = 0,
+                                )
+    if page == "🇫🇷 Version Française":
+        Streamlit_App.main()
 
     data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
     data_frame.set_index('Index', inplace=True)
@@ -322,5 +332,18 @@ def run():
                       f"{Listes_medocs.loc[{str(option2)}, 'Listes'][0]}",
                       key = option2)
      
+# -----------------------------------------------------------------------------
+
+def about():
+    st.sidebar.markdown('---')
+    st.sidebar.info('''
+        À compléter
+        
+        [GitHub repo](https://github.com/asehmi/st-media-service)
+    ''')
+
+# -----------------------------------------------------------------------------
+     
 if __name__ == "__main__":
-    run()
+    main()
+    about()
