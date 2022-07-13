@@ -24,8 +24,9 @@ def main():
                                 index = 0,
                                 )
     if page == "🇬🇧 English Version":
-        App_English_Version.main()
+        App_English_Version.run()
 
+def run():
     data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
     data_frame.set_index('Index', inplace=True)
 
@@ -345,4 +346,5 @@ def about():
      
 if __name__ == "__main__":
     main()
+    run()
     about()
