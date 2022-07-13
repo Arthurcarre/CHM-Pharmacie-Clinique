@@ -10,6 +10,11 @@ from streamlit.logger import get_logger
 LOGGER = get_logger(__name__)
 
 def main():
+    
+    st.set_page_config(
+        page_title="CheckDrugs VF",
+        page_icon="🇫🇷",
+    )
 
     logo = st.sidebar.image('img/logo_chm.png')
     st.sidebar.caption("Guide to drug therapy analysis in the EME patient.")
