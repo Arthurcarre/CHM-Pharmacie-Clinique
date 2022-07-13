@@ -5,7 +5,7 @@ from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 from streamlit.logger import get_logger
-from English_Version import 🇬🇧_English_Version
+from english_version import App_English_Version
 
 LOGGER = get_logger(__name__)
 
@@ -24,7 +24,7 @@ def main():
                                 index = 0,
                                 )
     if page == "🇬🇧 English Version":
-        🇬🇧_English_Version.main()
+        App_English_Version.main()
 
     data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
     data_frame.set_index('Index', inplace=True)
