@@ -322,6 +322,18 @@ def run():
          st.text_area(option2, 
                       f"{Listes_medocs.loc[{str(option2)}, 'Listes'][0]}",
                       key = option2)
+# -----------------------------------------------------------------------------
+
+def about():
+    st.sidebar.markdown('---')
+    st.sidebar.info('''
+        (c) 2022. CloudOpti Ltd. All rights reserved.
+        
+        [GitHub repo](https://github.com/asehmi/st-media-service)
+    ''')
+
+# -----------------------------------------------------------------------------
      
 if __name__ == "__main__":
     run()
+    about()
