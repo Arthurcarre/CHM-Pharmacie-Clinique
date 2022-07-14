@@ -317,9 +317,9 @@ def main():
 
                     if np.sum(depresseur_SNC_num) > 0 :
                         col1, col2 = st.columns(2)
-                        col1.write(f"Nombre de médicament **dépresseur du système nerveux central** dans ce bilan médicamenteux : {np.sum(depresseur_SNC_num)}")
+                        col1.write(f"Nombre de médicament **à l'origine d'une altération de l'équilibre** dans ce bilan médicamenteux : {np.sum(depresseur_SNC_num)}")
                         with col2 :
-                            with st.expander("Médicament(s) dépresseur(s) du système nerveux central du bilan médicamenteux"):
+                            with st.expander("Médicament(s) à l'origine d'une altération de l'équilibre du bilan médicamenteux"):
                                 for name in depresseur_SNC_name : 
                                     st.write(f"\n {name}")   
 
@@ -408,7 +408,7 @@ def main():
 def about():
     st.sidebar.markdown('---')
     st.sidebar.info('''
-        À compléter
+        Pour toutes suggestions d'ajout ou de modidification, n'hésitez pas à conctacter le Dr. Elsa Jouhanneau.
         
         [GitHub repo](https://github.com/asehmi/st-media-service)
     ''')
