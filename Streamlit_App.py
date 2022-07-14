@@ -43,6 +43,9 @@ def main():
                   liste_presc = []
 
             if st.sidebar.button("Ajouter le médicament"):
+                  if option == "# Choisir un médicament" :
+                        st.error("ERROR : Vous devez selectionner un médicament avant d'appuyer sur le bouton 'Ajouter le médicament'.")
+                        break
                   if option not in liste_presc:
                        liste_presc.append(option)
                        st.session_state.liste_presc = liste_presc
@@ -54,7 +57,7 @@ def main():
                        liste_presc.remove(option)
                        st.session_state.liste_presc = liste_presc
                   except ValueError :
-                       st.error("ERROR : Tu ne peux pas retirer des prescritpions un médicament qui n'est pas déjà dans les prescriptions !")
+                       st.error("ERROR : Tu ne peux pas retirer des prescriptions un médicament qui n'est pas déjà dans les prescriptions !")
 
             if st.sidebar.button("Réinitialiser la liste des prescriptions"):
                   if 'liste_presc' in st.session_state:
