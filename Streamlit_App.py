@@ -350,7 +350,7 @@ def main():
                                     st.write(f"\n {name}") 
 
                 if np.sum(pro_convuls_num) > 0 :
-                    st.sidebar.write(" ----------------------------- ")
+                    st.write(" ----------------------------- ")
                     st.write("**Analyse du risque de convulsion chez le patient épileptique :**") 
                     col1, col2 = st.columns(2)
                     col1.write(f"Nombre de médicament **proconvulsivant** dans ce bilan médicamenteux : {np.sum(pro_convuls_num)}")
