@@ -254,7 +254,6 @@ def main():
                            pro_convuls_num.append(int(data_frame.loc[{medoc}, 'Pro_convul'][0]))
                            pro_convuls_name.append(medoc)
 
-                st.write(" ----------------------------- ") 
                 st.write(" ----------------------------- ")   
 
                 if np.sum(medoc_inaprop_num) > 0 :
