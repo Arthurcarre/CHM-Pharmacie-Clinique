@@ -286,7 +286,7 @@ def main():
                                 for name in hypoT_ortho_name : 
                                     st.write(f"\n {name}") 
 
-                    if np.sum(depresseur_SNC_num) > 0 :
+                    elif np.sum(depresseur_SNC_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **dépresseur du système nerveux central** dans ce bilan médicamenteux : {np.sum(depresseur_SNC_num)}")
                         with col2 :
@@ -294,7 +294,7 @@ def main():
                                 for name in depresseur_SNC_name : 
                                     st.write(f"\n {name}")
                    
-                    if np.sum(hypoglycemia_num) > 0 :
+                    elif np.sum(hypoglycemia_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **hypoglycémiant** dans ce bilan médicamenteux : {np.sum(hypoglycemia_num)}")
                         with col2 :
@@ -315,7 +315,7 @@ def main():
                                 for name in anticholinergics_cent_name : 
                                     st.write(f"\n {name}")
 
-                    if np.sum(depresseur_SNC_num) > 0 :
+                    elif np.sum(depresseur_SNC_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **dépresseur du système nerveux central** dans ce bilan médicamenteux : {np.sum(depresseur_SNC_num)}")
                         with col2 :
@@ -334,14 +334,14 @@ def main():
                             with st.expander("Médicament(s) torsadogène(s) du bilan médicamenteux"):
                                 for name in torsadogene_name :
                                     st.write(f"\n {name}")
-                    if np.sum(bradycardi_num) > 0 :
+                    elif np.sum(bradycardi_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **bradycardisant** dans ce bilan médicamenteux : {np.sum(bradycardi_num)}")
                         with col2 :
                             with st.expander("Médicament(s) bradycardisant(s)"):
                                 for name in bradycardi_name : 
                                     st.write(f"\n {name}")
-                    if np.sum(hypok_num) > 0 :
+                    elif np.sum(hypok_num) > 0 :
                           col1, col2 = st.columns(2)
                           col1.write(f"Nombre de médicament **hypokaliémiant** dans ce bilan médicamenteux : {np.sum(hypok_num)}")
                           with col2 :
@@ -360,7 +360,7 @@ def main():
                             with st.expander("Médicament(s) hyperkaliémiant(s) du bilan médicamenteux"):
                                 for name in hyperk_name : 
                                     st.write(f"\n {name}")                
-                    if np.sum(hypok_num) > 0 :
+                    elif np.sum(hypok_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **hypokaliémiant** dans ce bilan médicamenteux : {np.sum(hypok_num)}")
                         with col2 :
