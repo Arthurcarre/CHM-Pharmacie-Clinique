@@ -341,7 +341,7 @@ def main():
                             with st.expander("Médicament(s) hyperkaliémiant(s) du bilan médicamenteux"):
                                 for name in hyperk_name : 
                                     st.write(f"\n {name}")                
-                   if np.sum(hypok_num) > 0 :
+                    if np.sum(hypok_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **hypokaliémiant** dans ce bilan médicamenteux : {np.sum(hypok_num)}")
                         with col2 :
