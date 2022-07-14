@@ -409,7 +409,7 @@ def about():
     st.sidebar.info('''
         Pour toutes suggestions d'ajout ou de modification, n'hésitez pas à conctacter le Dr. [Elsa Jouhanneau](mailto:ejouhanneau@ch-lemans.fr).
     ''')
-    st.write("Made by [Arthur Carré](mailto:arthur.carre@icloud.com) with streamlit") 
+    st.sidebar.write("Made by [Arthur Carré](mailto:arthur.carre@icloud.com) with streamlit") 
 
 # -----------------------------------------------------------------------------
      
