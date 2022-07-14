@@ -408,7 +408,7 @@ def main():
 def about():
     st.sidebar.markdown('---')
     st.sidebar.info('''
-        Pour toutes suggestions d'ajout ou de modidification, n'hésitez pas à conctacter le Dr. [Elsa Jouhanneau](ejouhanneau@ch-lemans.fr).
+        Pour toutes suggestions d'ajout ou de modidification, n'hésitez pas à conctacter le Dr. [Elsa Jouhanneau](mailto:ejouhanneau@ch-lemans.fr).
     ''')
 
 # -----------------------------------------------------------------------------
