@@ -207,6 +207,8 @@ def main():
 
             anticholinergics_num = []
             anticholinergics_name = []
+            anticholinergics_cent_num = []
+            anticholinergics_cent_name = []
             torsadogene_num = []
             torsadogene_name = []
             hypok_num = []
@@ -223,6 +225,8 @@ def main():
             hypoT_ortho_name = []
             pro_convuls_num = []
             pro_convuls_name = []
+            hypoglycemia_num = []
+            hypoglycemia_name = []
     
             if "liste_presc" in st.session_state :
                 for medoc in st.session_state.liste_presc :
@@ -253,6 +257,12 @@ def main():
                       if data_frame.loc[{medoc}, 'Pro_convul'][0] == 1 :
                            pro_convuls_num.append(int(data_frame.loc[{medoc}, 'Pro_convul'][0]))
                            pro_convuls_name.append(medoc)
+                      if data_frame.loc[{medoc}, 'Anticholinergic_Central'][0] == 1 :
+                           anticholinergics_cent_num.append(int(data_frame.loc[{medoc}, 'Anticholinergic_Central'][0]))
+                           anticholinergics_cent_name.append(medoc)
+                      if data_frame.loc[{medoc}, 'Hypoglycemia'][0] == 1 :
+                           hypoglycemia_num.append(int(data_frame.loc[{medoc}, 'Hypoglycemia'][0]))
+                           hypoglycemia_name.append(medoc)
 
                 st.write(" ----------------------------- ")   
 
@@ -282,18 +292,27 @@ def main():
                         with col2 :
                             with st.expander("Médicament(s) dépresseur(s) du système nerveux central du bilan médicamenteux"):
                                 for name in depresseur_SNC_name : 
-                                    st.write(f"\n {name}")     
+                                    st.write(f"\n {name}")
+                   
+                    if np.sum(hypoglycemia_num) > 0 :
+                        col1, col2 = st.columns(2)
+                        col1.write(f"Nombre de médicament **hypoglycémiant** dans ce bilan médicamenteux : {np.sum(hypoglycemia_num)}")
+                        with col2 :
+                            with st.expander("Médicament(s) hypoglycémiant(s) du bilan médicamenteux"):
+                                for name in hypoglycemia_name : 
+                                    st.write(f"\n {name}")
+                    
 
                 if np.sum(anticholinergics_num) > 0 or np.sum(depresseur_SNC_num) > 0 :
                     st.write(" ----------------------------- ") 
                     st.write("**Analyse du risque de troubles confusionnelles ou de désorientation :**")
 
-                    if np.sum(anticholinergics_num) > 0 :
+                    if np.sum(anticholinergics_cent_num) > 0 :
                         col1, col2 = st.columns(2)
-                        col1.write(f"Nombre de médicament **anticholinergique** de ce bilan médicamenteux : {np.sum(anticholinergics_num)}")
+                        col1.write(f"Nombre de médicament **anticholinergique central** de ce bilan médicamenteux : {np.sum(anticholinergics_cent_num)}")
                         with col2 :
-                            with st.expander("Médicament(s) anticholinergique(s) du bilan médicamenteux"):
-                                for name in anticholinergics_name : 
+                            with st.expander("Médicament(s) anticholinergique(s) central/centraux du bilan médicamenteux"):
+                                for name in anticholinergics_cent_name : 
                                     st.write(f"\n {name}")
 
                     if np.sum(depresseur_SNC_num) > 0 :
@@ -348,7 +367,17 @@ def main():
                             with st.expander("Médicament(s) hypokaliémiant(s) du bilan médicamenteux"):
                                 for name in hypok_name : 
                                     st.write(f"\n {name}") 
-
+                
+                if np.sum(anticholinergics_num) > 0 :
+                    st.write(" ----------------------------- ")
+                    st.write("**Analyse du risque de syndrome anticholinergique :**") 
+                    col1, col2 = st.columns(2)
+                    col1.write(f"Nombre de médicament **anticholinergique** dans ce bilan médicamenteux : {np.sum(anticholinergics_num)}")
+                    with col2 :
+                        with st.expander("Médicament(s) anticholinergique(s) du bilan médicamenteux"):
+                            for name in anticholinergics_name : 
+                                st.write(f"\n {name}")
+                
                 if np.sum(pro_convuls_num) > 0 :
                     st.write(" ----------------------------- ")
                     st.write("**Analyse du risque de convulsion chez le patient épileptique :**") 
@@ -358,6 +387,7 @@ def main():
                         with st.expander("Médicament(s) proconvulsivant(s) du bilan médicamenteux"):
                             for name in pro_convuls_name : 
                                 st.write(f"\n {name}")
+                                
 
             st.sidebar.write(" ----------------------------- ")    
 
