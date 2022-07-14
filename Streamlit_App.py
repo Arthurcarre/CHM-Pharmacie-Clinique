@@ -16,10 +16,7 @@ def main():
         layout="wide"
     )
     logo = st.sidebar.image('img/logo_chm.png')
-    st.sidebar.caption("Guide d'analyse pharmacothérapeutique chez le patient MUPA.")
-    
     pages = ("🇫🇷 Version Française", "🇬🇧 English Version")
-
     page = st.sidebar.selectbox(label = "For the English version ↙️",
                                 options = pages,
                                 index = 0,
