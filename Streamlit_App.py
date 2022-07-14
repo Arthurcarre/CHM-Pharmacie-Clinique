@@ -315,14 +315,14 @@ def main():
                             with st.expander("Médicament(s) torsadogène(s) du bilan médicamenteux"):
                                 for name in torsadogene_name :
                                     st.write(f"\n {name}")
-                     if np.sum(bradycardi_num) > 0 :
+                    if np.sum(bradycardi_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **bradycardisant** dans ce bilan médicamenteux : {np.sum(bradycardi_num)}")
                         with col2 :
                             with st.expander("Médicament(s) bradycardisant(s)"):
                                 for name in bradycardi_name : 
                                     st.write(f"\n {name}")
-                     if np.sum(hypok_num) > 0 :
+                    if np.sum(hypok_num) > 0 :
                           col1, col2 = st.columns(2)
                           col1.write(f"Nombre de médicament **hypokaliémiant** dans ce bilan médicamenteux : {np.sum(hypok_num)}")
                           with col2 :
@@ -341,7 +341,7 @@ def main():
                             with st.expander("Médicament(s) hyperkaliémiant(s) du bilan médicamenteux"):
                                 for name in hyperk_name : 
                                     st.write(f"\n {name}")                
-                    if np.sum(hypok_num) > 0 :
+                   if np.sum(hypok_num) > 0 :
                         col1, col2 = st.columns(2)
                         col1.write(f"Nombre de médicament **hypokaliémiant** dans ce bilan médicamenteux : {np.sum(hypok_num)}")
                         with col2 :
