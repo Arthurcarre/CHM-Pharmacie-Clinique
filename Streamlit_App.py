@@ -408,9 +408,7 @@ def main():
 def about():
     st.sidebar.markdown('---')
     st.sidebar.info('''
-        Pour toutes suggestions d'ajout ou de modidification, n'hésitez pas à conctacter le Dr. Elsa Jouhanneau.
-        
-        [GitHub repo](https://github.com/asehmi/st-media-service)
+        Pour toutes suggestions d'ajout ou de modidification, n'hésitez pas à conctacter le Dr. [Elsa Jouhanneau](ejouhanneau@ch-lemans.fr).
     ''')
 
 # -----------------------------------------------------------------------------
