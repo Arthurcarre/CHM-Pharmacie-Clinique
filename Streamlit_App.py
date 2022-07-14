@@ -285,8 +285,8 @@ def main():
                                     st.write(f"\n {name}")     
 
                 if np.sum(anticholinergics_num) > 0 or np.sum(depresseur_SNC_num) > 0 :
-                        st.write(" ----------------------------- ") 
-                        st.write("Analyse du risque de troubles confusionnelles ou de désorientation :")
+                    st.write(" ----------------------------- ") 
+                    st.write("Analyse du risque de troubles confusionnelles ou de désorientation :")
 
                     if np.sum(anticholinergics_num) > 0 :
                         col1, col2 = st.columns(2)
