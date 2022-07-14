@@ -266,7 +266,7 @@ def main():
 
                 if np.sum(hypoT_ortho_num) > 0 or np.sum(depresseur_SNC_num) > 0 :
                     st.write(" ----------------------------- ") 
-                    st.write("Analyse du risque de chute :")
+                    st.write("**Analyse du risque de chute :**")
 
                     if np.sum(hypoT_ortho_num) > 0 :
                         col1, col2 = st.columns(2)
@@ -286,7 +286,7 @@ def main():
 
                 if np.sum(anticholinergics_num) > 0 or np.sum(depresseur_SNC_num) > 0 :
                     st.write(" ----------------------------- ") 
-                    st.write("Analyse du risque de troubles confusionnelles ou de désorientation :")
+                    st.write("**Analyse du risque de troubles confusionnelles ou de désorientation :**")
 
                     if np.sum(anticholinergics_num) > 0 :
                         col1, col2 = st.columns(2)
@@ -306,7 +306,7 @@ def main():
 
                 if np.sum(torsadogene_num) > 0 or np.sum(bradycardi_num) > 0 or np.sum(hypok_num) > 0 :
                     st.write(" ----------------------------- ") 
-                    st.write("Analyse du risque d'arythmie cardiaque de type torsade de pointes :")
+                    st.write("**Analyse du risque d'arythmie cardiaque de type torsade de pointes :**")
 
                     if np.sum(torsadogene_num) > 0 :
                         col1, col2 = st.columns(2)
@@ -332,7 +332,7 @@ def main():
 
                 if np.sum(hypok_num) > 0 or np.sum(hyperk_num) > 0 :
                     st.write(" ----------------------------- ") 
-                    st.write("Analyse du risque de dyskaliémie :") 
+                    st.write("**Analyse du risque de dyskaliémie :**") 
 
                     if np.sum(hyperk_num) > 0 :
                         col1, col2 = st.columns(2)
@@ -351,6 +351,7 @@ def main():
 
                 if np.sum(pro_convuls_num) > 0 :
                     st.sidebar.write(" ----------------------------- ")
+                    st.write("**Analyse du risque de convulsion chez le patient épileptique :**") 
                     col1, col2 = st.columns(2)
                     col1.write(f"Nombre de médicament **proconvulsivant** dans ce bilan médicamenteux : {np.sum(pro_convuls_num)}")
                     with col2 :
