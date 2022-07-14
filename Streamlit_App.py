@@ -45,8 +45,7 @@ def main():
             if st.sidebar.button("Ajouter le médicament"):
                   if option == "# Choisir un médicament" :
                         st.error("ERROR : Vous devez selectionner un médicament avant d'appuyer sur le bouton 'Ajouter le médicament'.")
-                        break
-                  if option not in liste_presc:
+                  elif option not in liste_presc:
                        liste_presc.append(option)
                        st.session_state.liste_presc = liste_presc
                   else :
