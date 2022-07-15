@@ -7,13 +7,6 @@ from streamlit_bokeh_events import streamlit_bokeh_events
 from streamlit.logger import get_logger
 from english_version import App_English_Version
 
-[theme]
-primaryColor="#F63366"
-backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#F0F2F6"
-textColor="#262730"
-font="sans serif"
-
 LOGGER = get_logger(__name__)
 
 def main():
