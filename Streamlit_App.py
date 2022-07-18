@@ -137,7 +137,7 @@ def main():
                                                txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                                               key = medoc)
                                                if txt :                
-                                                    st.text_area("À adatper selon le contexte", 
+                                                    st.text_area("À adapter selon le contexte", 
                                                               f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                                               key = medoc, max_chars=500, help="Source : À complèter")
                                                     text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
@@ -185,7 +185,7 @@ def main():
                                                except :
                                                     st.error("ERROR : La base de données interne contient un duplicat (Nom de médicament + Condition). À corriger")
                                                if txt :                
-                                                    st.text_area("À adatper selon le contexte", 
+                                                    st.text_area("À adapter selon le contexte", 
                                                                 f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
                                                                 key = medoc, max_chars=500, help="Source : À complèter")
                                                     text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
