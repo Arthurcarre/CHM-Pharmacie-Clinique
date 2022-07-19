@@ -76,7 +76,7 @@ def main():
             st.subheader('Liste des prescriptions')
             
             empty_list = []
-            if st.session_state.liste_presc == empty_list :
+            if liste_presc == [] :
                 st.image('Tutoriel.png')
             
             if "liste_presc" in st.session_state:
