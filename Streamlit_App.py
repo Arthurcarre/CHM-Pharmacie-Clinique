@@ -75,7 +75,6 @@ def main():
             st.header('Analyse pharmaco-thérapeutique')
             st.subheader('Liste des prescriptions')
             
-            empty_list = []
             if liste_presc == [] :
                 st.image('Tutoriel.png')
             
