@@ -67,7 +67,7 @@ def main():
                        st.session_state.liste_presc = liste_presc
                   except ValueError :
                        st.error("ERROR : Tu ne peux pas retirer des prescriptions un médicament qui n'est pas déjà dans les prescriptions !")
-
+                        
             if st.sidebar.button("Réinitialiser la liste des prescriptions"):
                   if 'liste_presc' in st.session_state:
                          del st.session_state.liste_presc
@@ -75,9 +75,9 @@ def main():
             st.header('Analyse pharmaco-thérapeutique')
             st.subheader('Liste des prescriptions')
             
-            st.write(st.session_state.liste_presc)
-            #if liste_presc == None
-
+            st.session_state.liste_presc == [] :
+                st.image('Tutoriel.png')
+            
             if "liste_presc" in st.session_state:
                  for medoc in st.session_state.liste_presc :  
                       col1, col2 = st.columns([1, 3])
