@@ -15,6 +15,7 @@ def main():
         page_icon="💊",
         layout="wide"
     )
+    st.info('This is a purely informational message', icon="ℹ️")
     logo = st.sidebar.image('img/logo_chm.png')
     pages = ("🇫🇷 Version Française", "🇬🇧 English Version")
     page = st.sidebar.selectbox(label = "For the English version ↙️",
