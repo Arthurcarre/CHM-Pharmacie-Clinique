@@ -184,7 +184,7 @@ def main():
                                                  st.write(" ----------------------------- ") 
                                                  st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                             txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                                             key = medoc)
+                                                             key = data_frame.loc[{medoc}, 'Paragraphe'][i])
                                             #except :
                                             #st.error("ERROR : La base de données interne contient un duplicat (Nom de médicament + Condition). À corriger")
                                             if txt :                
