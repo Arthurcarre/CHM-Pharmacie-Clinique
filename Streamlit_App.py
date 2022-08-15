@@ -119,7 +119,7 @@ def main():
                                           else :
                                                st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                                txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                                              key = medoc)
+                                                              key = medoc + data_frame.loc[{medoc}, 'Condition'][i]})
                                                if txt :                
                                                     st.text_area("À adapter selon le contexte", 
                                                               f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
@@ -145,7 +145,7 @@ def main():
                                              st.write(" ----------------------------- ") 
                                              st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                         txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
-                                                         key = medoc)
+                                                         key = medoc + data_frame.loc[{medoc}, 'Condition'][i]})
                                         #except :
                                         #st.error("ERROR : La base de données interne contient un duplicat (Nom de médicament + Condition). À corriger")
                                         if txt :                
