@@ -9,7 +9,11 @@ from streamlit.logger import get_logger
 LOGGER = get_logger(__name__)
 
 def run():
+    
+    st.header('Coming Soon')
 
+    st.markdown('This section is coming soon...')
+    """
     data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
     data_frame.set_index('Index', inplace=True)
 
@@ -74,7 +78,7 @@ def run():
 
                                       copy_button = Button(label="Copier le texte")
                                       copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-                                           navigator.clipboard.writeText(content);
+                                      #     navigator.clipboard.writeText(content);
                                            """))
                                     
                                       no_event = streamlit_bokeh_events(
@@ -94,7 +98,7 @@ def run():
 
                                        copy_button = Button(label="Copier le texte")
                                        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-                                           navigator.clipboard.writeText(content);
+                                       #    navigator.clipboard.writeText(content);
                                            """))
 
                                        no_event = streamlit_bokeh_events(
@@ -117,7 +121,7 @@ def run():
                                             
                                             copy_button = Button(label="Copier le texte")
                                             copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-                                                navigator.clipboard.writeText(content);
+                                            #    navigator.clipboard.writeText(content);
                                                 """))
 
                                             no_event = streamlit_bokeh_events(
@@ -137,7 +141,7 @@ def run():
                                     
                                        copy_button = Button(label="Copier le texte")
                                        copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-                                           navigator.clipboard.writeText(content);
+                                      #     navigator.clipboard.writeText(content);
                                            """))
 
                                        no_event = streamlit_bokeh_events(
@@ -165,7 +169,7 @@ def run():
 
                                             copy_button = Button(label="Copier le texte")
                                             copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-                                                navigator.clipboard.writeText(content);
+                                            #    navigator.clipboard.writeText(content);
                                                 """))
 
                                             no_event = streamlit_bokeh_events(
@@ -181,9 +185,9 @@ def run():
                    with col2 :
                         with st.expander("Recommandation"):
                              st.write("""
-              Nous recommandons de vérifier la présence d'intéraction médicamenteuse entre chaque médicament et l'inducteur enzymatique 
-              à l'aide du détecteur d'intéraction médicamenteuse du Vidal ou de la dernière version récente du Thésaurus de l'ANSM (en s'assurant de vérifier
-              à la fois dans la partie "Anticonvulsivant inducteur enzymatique" mais aussi dans la partie propre du médicamennt inducteur enzymatique concerné).
+           #   Nous recommandons de vérifier la présence d'intéraction médicamenteuse entre chaque médicament et l'inducteur enzymatique 
+           #   à l'aide du détecteur d'intéraction médicamenteuse du Vidal ou de la dernière version récente du Thésaurus de l'ANSM (en s'assurant de vérifier
+           #   à la fois dans la partie "Anticonvulsivant inducteur enzymatique" mais aussi dans la partie propre du médicamennt inducteur enzymatique concerné).
           """)
 
     anticholinergics_num = []
@@ -314,3 +318,4 @@ def run():
          st.text_area(option2, 
                       f"{Listes_medocs.loc[{str(option2)}, 'Listes'][0]}",
                       key = option2)
+    """
