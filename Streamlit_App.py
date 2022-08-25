@@ -35,7 +35,7 @@ def main():
         App_English_Version.run()
     else :
         def run():
-            data_frame = pd.read_csv('Analyse Pharmacotherapeutique File.csv')
+            data_frame = pd.read_csv('Drugs_Database_Pharmacotherapeutic_analysis_MUPA.csv')
             data_frame.set_index('Index', inplace=True)
 
             liste_medoc = [str(medoc) for medoc in set(data_frame.index)]
@@ -91,7 +91,7 @@ def main():
 
                                 compteur2 = 0
                                 for i in range(compteur):
-                                     if data_frame.loc[{medoc}, 'Category'][i] == 'Contrôle des indications :' :
+                                     if data_frame.loc[{medoc}, 'Category'][i] == 'Contrôle des indications et stratégie thérapeutique :' :
                                           compteur2 += 1
                                 for i in range(compteur):
                                      if i == 0 :
@@ -99,7 +99,8 @@ def main():
                                               st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
                                               st.text_area(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                                        f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                       key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500, help="Source : À complèter")
+                                                       key = int(np.random.randint(0, 100000, size=(1, 1))),
+                                                       max_chars=500, help=f"Source : {data_frame.loc[{medoc}, 'Reference'][i]}")
                                               text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                               copy_dict = {"content": text_to_be_copied}
 
@@ -117,28 +118,29 @@ def main():
                                                    debounce_time=0)
 
                                           else :
-                                               st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
-                                               txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
+                                            st.write(f"**{data_frame.loc[{medoc}, 'Category'][i]}**")
+                                            txt = st.checkbox(f"{data_frame.loc[{medoc}, 'Condition'][i]}",
                                                               key = medoc + data_frame.loc[{medoc}, 'Condition'][i])
-                                               if txt :                
-                                                    st.text_area("À adapter selon le contexte", 
+                                            if txt :
+                                                st.text_area("À adapter selon le contexte", 
                                                               f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                              key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500, help="Source : À complèter")
-                                                    text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
-                                                    copy_dict = {"content": text_to_be_copied}
+                                                              key = int(np.random.randint(0, 100000, size=(1, 1))),
+                                                              max_chars=500, help=f"Source : {data_frame.loc[{medoc}, 'Reference'][i]}")
+                                                text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
+                                                copy_dict = {"content": text_to_be_copied}
 
-                                                    copy_button = Button(label="Copier le texte")
-                                                    copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
-                                                        navigator.clipboard.writeText(content);
-                                                        """))
+                                                copy_button = Button(label="Copier le texte")
+                                                copy_button.js_on_event("button_click", CustomJS(args=copy_dict, code="""
+                                                    navigator.clipboard.writeText(content);
+                                                    """))
 
-                                                    no_event = streamlit_bokeh_events(
-                                                        copy_button,
-                                                        events="GET_TEXT",
-                                                        key=int(np.random.randint(0, 100000, size=(1, 1))),
-                                                        refresh_on_update=True,
-                                                        override_height=40,
-                                                        debounce_time=0)
+                                                no_event = streamlit_bokeh_events(
+                                                    copy_button,
+                                                    events="GET_TEXT",
+                                                    key=int(np.random.randint(0, 100000, size=(1, 1))),
+                                                    refresh_on_update=True,
+                                                    override_height=40,
+                                                    debounce_time=0)
                                      else :
                                         #try :
                                         if data_frame.loc[{medoc}, 'Category'][i] != data_frame.loc[{medoc}, 'Category'][i-1] :
@@ -151,7 +153,8 @@ def main():
                                         if txt :                
                                             st.text_area("À adapter selon le contexte", 
                                                         f"{data_frame.loc[{medoc}, 'Paragraphe'][i]}",
-                                                        key = int(np.random.randint(0, 100000, size=(1, 1))), max_chars=500, help="Source : À complèter")
+                                                        key = int(np.random.randint(0, 100000, size=(1, 1))),
+                                                        max_chars=500, help=f"Source : {data_frame.loc[{medoc}, 'Reference'][i]}")
                                             text_to_be_copied = data_frame.loc[{medoc}, 'Paragraphe'][i]
                                             copy_dict = {"content": text_to_be_copied}
 
